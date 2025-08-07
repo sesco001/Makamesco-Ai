@@ -2,24 +2,24 @@
   "name": "babyboy",
   "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "control.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "s": "node index.js", 
-    "start": "node index.js", 
-    "ezra": "pm2 start index.js --attach --max-memory-restart 490M",
+    "s": "node control.js", 
+    "start": "node control.js", 
+    "ezra": "pm2 start control.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
   "keywords": [
     "bot",
     "Baileys",
-    "Lucky-Xforce",
+    "MakamescoMd",
     "whatsapp",
     "whatsapp-bot",
     "frediezra"
   ],
-  "author": "frediezra",
+  "author": "Makamesco",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",  
@@ -72,3 +72,4 @@
    
   }
 }
+
