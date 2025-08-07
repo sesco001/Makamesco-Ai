@@ -1,72 +1,87 @@
-const {
-  ezra
-} = require("../fredi/ezra");
-const tagCommands = [{
-  'nomCom': "groupmembers",
-  'filter': () => true,
-  'title': "📣 MAKAMESCOTAG ALL MEMBERS"
-}, {
-  'nomCom': "admins",
-  'filter': (_0x12fd26, _0x4cf701) => _0x4cf701.includes(_0x12fd26.id),
-  'title': "👑 MAKAMESCO TAG ADMINS"
-}, {
-  'nomCom': "listactive",
-  'filter': _0x4a25eb => _0x4a25eb.isOnline,
-  'title': "🟢 LIST ONLINE"
-}, {
-  'nomCom': "listoffline",
-  'filter': _0x188d05 => !_0x188d05.isOnline,
-  'title': "🔴 MAKAMESCO INACTIVE MEMBERS"
-}];
-tagCommands.forEach(({
-  nomCom: _0x4b759c,
-  filter: _0x240349,
-  title: _0x4b6950
-}) => {
+const { ezra } = require("../fredi/ezra");
+
+const tagCommands = [
+  {
+    commandName: "groupmembers",
+    filter: () => true,
+    title: "📣 TAG ALL MEMBERS"
+  }, 
+  {
+    commandName: "admins",
+    filter: (participant, adminIds) => adminIds.includes(participant.id),
+    title: "👑 TAG ADMINS"
+  }, 
+  {
+    commandName: "listactive",
+    filter: participant => participant.isOnline,
+    title: "🟢 LIST ONLINE MEMBERS"
+  }, 
+  {
+    commandName: "listoffline",
+    filter: participant => !participant.isOnline,
+    title: "🔴 LIST INACTIVE MEMBERS"
+  }
+];
+
+tagCommands.forEach(({ commandName, filter, title }) => {
   ezra({
-    'nomCom': _0x4b759c,
-    'categorie': "Makamesco-Group",
-    'reaction': '📯'
-  }, async (_0xee4deb, _0x33ee23, _0x560988) => {
+    nomCom: commandName,
+    categorie: "Group-Tagging",
+    reaction: '📯'
+  }, async (messageInfo, messageUtils, commandArgs) => {
     const {
-      ms: _0x2a2687,
-      repondre: _0x44fb19,
-      arg: _0x1c5f79,
-      verifGroupe: _0x3ce218,
-      nomGroupe: _0x45cd5e,
-      infosGroupe: _0x34516e,
-      nomAuteurMessage: _0x2049b0,
-      verifAdmin: _0xf55605,
-      superUser: _0x305095
-    } = _0x560988;
-    if (!_0x3ce218) {
-      return _0x44fb19("⚠️ This command is for groups only.");
+      ms: message,
+      repondre: reply,
+      arg: args,
+      verifGroupe: isGroup,
+      nomGroupe: groupName,
+      infosGroupe: groupInfo,
+      nomAuteurMessage: senderName
+    } = commandArgs;
+
+    if (!isGroup) {
+      return reply("⚠️ This command is for groups only.");
     }
-    const _0x4dbe00 = _0x1c5f79 && _0x1c5f79.length > 0 ? _0x1c5f79.join(" ") : "No message provided.";
-    const _0x1009c3 = _0x34516e.participants || [];
-    const _0x5155ce = _0x1009c3.filter(_0x2306a5 => _0x2306a5.admin).map(_0x460f18 => _0x460f18.id);
-    const _0x6e1a56 = _0x1009c3.map(_0x173203 => ({
-      ..._0x173203,
-      'isOnline': true
+
+    const messageText = args && args.length > 0 ? args.join(" ") : "No message provided.";
+    const participants = groupInfo.participants || [];
+    const adminIds = participants.filter(p => p.admin).map(p => p.id);
+    
+    const participantsWithStatus = participants.map(participant => ({
+      ...participant,
+      isOnline: true
     }));
-    const _0x2d8c0e = _0x6e1a56.filter(_0x2d89ab => _0x240349(_0x2d89ab, _0x5155ce));
-    if (!_0xf55605 && !_0x305095) {
-      return _0x44fb19("⚠️ Only admins or super users can use this command.");
+
+    const filteredParticipants = participantsWithStatus.filter(p => filter(p, adminIds));
+
+    if (filteredParticipants.length === 0) {
+      return reply("❌ No members found for this tag category.");
     }
-    if (_0x2d8c0e.length === 0) {
-      return _0x44fb19("❌ No members found for this tag category.");
+
+    const randomSymbols = ['💡', '☢️', "🗡️", "🖌️", '🪫', '🔋', '⚙️', "🕶️", "🌡️", '✏️', '📌', '©️', '$', '®️', '™️', '⚔️', '🔏'];
+    const randomSymbol = randomSymbols[Math.floor(Math.random() * randomSymbols.length)];
+
+    let messageContent = `
+┈┈┈┈┈┈┈┈┈┈┈┈
+        
+        ${title}
+┈┈┈┈┈┈┈┈┈┈┈┈
+👥 Group: ${groupName}
+👤 By: *${senderName}*
+📝 Message: *${messageText}*
+┈┈┈┈┈┈┈┈┈┈┈┈
+
+`;
+
+    for (const participant of filteredParticipants) {
+      messageContent += `${randomSymbol} @${participant.id.split('@')[0]}\n`;
     }
-    const _0x40e9d4 = ['💡', '☢️', "🗡️", "🖌️", '🪫', '🔋', '⚙️', "🕶️", "🌡️", '✏️', '📌', '©️', '$', '®️', '™️', '⚔️', '🔏'];
-    const _0x7bcb2 = _0x40e9d4[Math.floor(Math.random() * _0x40e9d4.length)];
-    let _0x181fc7 = "┈┈┈┈┈┈┈┈┈┈┈┈\n  \n        " + _0x4b6950 + "\n┈┈┈┈┈┈┈┈┈┈┈┈\n👥 Group: " + _0x45cd5e + "\n👤 By: *" + _0x2049b0 + "*\n📝 Message: *" + _0x4dbe00 + "*\n┈┈┈┈┈┈┈┈┈┈┈┈\n\n";
-    for (const _0x362f94 of _0x2d8c0e) {
-      _0x181fc7 += _0x7bcb2 + " @" + _0x362f94.id.split('@')[0] + "\n";
-    }
-    _0x33ee23.sendMessage(_0xee4deb, {
-      'text': _0x181fc7,
-      'mentions': _0x2d8c0e.map(_0x4b8a89 => _0x4b8a89.id)
+
+    messageUtils.sendMessage(messageInfo, {
+      text: messageContent,
+      mentions: filteredParticipants.map(p => p.id)
     }, {
-      'quoted': _0x2a2687
+      quoted: message
     });
   });
 });
