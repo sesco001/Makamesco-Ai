@@ -19,7 +19,7 @@ const s = require("../set")
 ezra(
     {
         nomCom : 'warn',
-        categorie : 'Fredi-Group'
+        categorie : 'Makamesco-Group'
         
     },async (dest,zk,commandeOptions) => {
 
@@ -53,7 +53,7 @@ if(verifAdmin || superUser) {
    
    
  // COMMAND TO GETALLMEMBERS 
-ezra({ nomCom: "getallmembers", categorie: 'Fredi-Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "getallmembers", categorie: 'Makamesco-Group', reaction: "📣" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions;
 
   if (!verifGroupe) return repondre("✋🏿 This command is reserved for groups ❌");
@@ -91,7 +91,7 @@ ezra({ nomCom: "getallmembers", categorie: 'Fredi-Group', reaction: "📣" }, as
 
 
 // COMMAND TO TAGALL
-ezra({ nomCom: "tagall", categorie: 'Fredi-Group', reaction: "📯" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "tagall", categorie: 'Makamesco-Group', reaction: "📯" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions
 
@@ -139,7 +139,7 @@ ezra({ nomCom: "tagall", categorie: 'Fredi-Group', reaction: "📯" }, async (de
 
 
 // COMMAND TO LINK GROUP 
-ezra({ nomCom: "link", categorie: 'Fredi-Group', reaction: "🚜" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "link", categorie: 'Makamesco-Group', reaction: "🚜" }, async (dest, zk, commandeOptions) => {
   const { repondre, nomGroupe, nomAuteurMessage, verifGroupe } = commandeOptions;
   if (!verifGroupe) { repondre("wait bro , you want the link to my dm?"); return; };
 
@@ -149,7 +149,7 @@ ezra({ nomCom: "link", categorie: 'Fredi-Group', reaction: "🚜" }, async (dest
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️LUCKY-MD-XFORCE☢️`
+Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️Makamesco☢️`
   repondre(mess)
 
 
@@ -158,7 +158,7 @@ Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️LUCKY-MD-X
 
 // COMMAND TO PROMOTE ADM
 /** *nommer un membre comme admin */
-ezra({ nomCom: "promote", categorie: 'Fredi-Group', reaction: "💐" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "promote", categorie: 'Makamesco-Group', reaction: "💐" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -218,7 +218,7 @@ ezra({ nomCom: "promote", categorie: 'Fredi-Group', reaction: "💐" }, async (d
 })
 
 // COMMAND TO DEMOTE ADM
-ezra({ nomCom: "demote", categorie: 'Fredi-Group', reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "demote", categorie: 'Makamesco-Group', reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -282,7 +282,7 @@ ezra({ nomCom: "demote", categorie: 'Fredi-Group', reaction: "👨🏿‍💼" }
 
 
 // COMMAND TO REMOVE MEMBERS 
-ezra({ nomCom: "remove", categorie: 'Fredi-Group', reaction: "😱" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "remove", categorie: 'Makamesco-Group', reaction: "😱" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, nomAuteurMessage, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("for groups only"); }
@@ -355,7 +355,7 @@ ezra({ nomCom: "remove", categorie: 'Fredi-Group', reaction: "😱" }, async (de
 })
 
 // COMMAND TO DELETE 
-ezra({ nomCom: "del", categorie: 'Fredi-Group',reaction:"🧹" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "del", categorie: 'Makamesco-Group',reaction:"🧹" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe,auteurMsgRepondu,idBot, msgRepondu, verifAdmin, superUser} = commandeOptions;
   
@@ -404,7 +404,7 @@ ezra({ nomCom: "del", categorie: 'Fredi-Group',reaction:"🧹" }, async (dest, z
 });
 
 // COMMAND TO GRUP INFO
-ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "info", categorie: 'Makamesco-Group' }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, verifGroupe } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for the group only"); return };
 
@@ -417,7 +417,7 @@ ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpti
 
     let mess = {
       image: { url: ppgroup },
-      caption:  `☢️MAKAMESCO-MD-XFORCE☢️\n\n*━━━━『𝙶𝚁𝙾𝚄𝙿 𝙸𝙽𝙵𝙾』━━━━*\n\n*🎐Name:* ${info.subject}\n\n*🔩Group's ID:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
+      caption:  `☢️MAKAMESCO-MD☢️\n\n*━━━━『𝙶𝚁𝙾𝚄𝙿 𝙸𝙽𝙵𝙾』━━━━*\n\n*🎐Name:* ${info.subject}\n\n*🔩Group's ID:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
     }
 
 
@@ -427,7 +427,7 @@ ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpti
 
 
  // COMMAND TO ACTVATE ANTILINK GROUP
- ezra({ nomCom: "antilink", categorie: 'Fredi-Group', reaction: "🔗" }, async (dest, zk, commandeOptions) => {
+ ezra({ nomCom: "antilink", categorie: 'Makamesco-Group', reaction: "🔗" }, async (dest, zk, commandeOptions) => {
 
 
   var { repondre, arg, verifGroupe, superUser, verifAdmin } = commandeOptions;
@@ -495,7 +495,7 @@ ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpti
 
  // COMMAND TO ACTIVATE ANTIBOT
 
- ezra({ nomCom: "antibot", categorie: 'Fredi-Group', reaction: "👾" }, async (dest, zk, commandeOptions) => {
+ ezra({ nomCom: "antibot", categorie: 'Makamesco-Group', reaction: "👾" }, async (dest, zk, commandeOptions) => {
 
 
   var { repondre, arg, verifGroupe, superUser, verifAdmin } = commandeOptions;
@@ -561,7 +561,7 @@ ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpti
 
 // COMMAND TO GROUP ACTION OPN/CLS
 
-ezra({ nomCom: "group", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "group", categorie: 'Makamesco-Group' }, async (dest, zk, commandeOptions) => {
 
   const { repondre, verifGroupe, verifAdmin, superUser, arg } = commandeOptions;
 
@@ -592,21 +592,18 @@ ezra({ nomCom: "group", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpt
 });
 
 // COMMAND ACTION TO LEFT GROUP
-ezra({ nomCom: "left", categorie: "Fredi-User" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "left", categorie: "Makamesco-Group" }, async (dest, zk, commandeOptions) => {
 
   const { repondre, verifGroupe, superUser } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for group only"); return };
-  if (!superUser) {
-    repondre("command reserved for the bot owner");
-    return;
-  }
+ 
   await repondre('sayonnara') ;
    
   zk.groupLeave(dest)
 });
 
 // COMMAND TO EDIT GROUP NAME
-ezra({ nomCom: "gname", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "gname", categorie: 'Makamesco-Group' }, async (dest, zk, commandeOptions) => {
 
   const { arg, repondre, verifAdmin } = commandeOptions;
 
@@ -626,7 +623,7 @@ ezra({ nomCom: "gname", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpt
 }) ;
 
 // COMMAND TO EDIT GROUP DESK
-ezra({ nomCom: "gdesc", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "gdesc", categorie: 'Makamesco-Group' }, async (dest, zk, commandeOptions) => {
 
   const { arg, repondre, verifAdmin } = commandeOptions;
 
@@ -646,7 +643,7 @@ ezra({ nomCom: "gdesc", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpt
 }) ;
 
 // COMMAND TO GET GROUP PROFILE PHOTO
-ezra({ nomCom: "gpp", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "gpp", categorie: 'Makamesco-Group' }, async (dest, zk, commandeOptions) => {
 
   const { repondre, msgRepondu, verifAdmin } = commandeOptions;
 
@@ -671,7 +668,7 @@ ezra({ nomCom: "gpp", categorie: 'Fredi-Group' }, async (dest, zk, commandeOptio
 });
 
 // COMMAND TO TAG ALL MEMBERS
-ezra({nomCom:"tag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ezra({nomCom:"tag",categorie:'Makamesco-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -779,7 +776,7 @@ ezra({nomCom:"tag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,comman
 
 
 // COMMAND TO TAG ALL MEMBERS
-ezra({nomCom:"hidetag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ezra({nomCom:"hidetag",categorie:'Makamesco-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -887,7 +884,7 @@ ezra({nomCom:"hidetag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,co
 
 
 // COMMAND TO TAG ALL MEMBERS
-ezra({nomCom:"htag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+ezra({nomCom:"htag",categorie:'Makamesco-Group',reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
   const {repondre,msgRepondu,verifGroupe,arg ,verifAdmin , superUser}=commandeOptions;
 
@@ -1001,7 +998,7 @@ const cron = require(`../lib/cron`) ;
 
 ezra({
       nomCom : 'automute',
-      categorie : 'Fredi-Group'
+      categorie : 'Makamesco-Group'
   } , async (dest,zk,commandeOptions) => {
 
       const {arg , repondre , verifAdmin } = commandeOptions ;
@@ -1073,7 +1070,7 @@ ezra({
 
   ezra({
     nomCom : 'autounmute',
-    categorie : 'Fredi-Group'
+    categorie : 'Makamesco-Group'
 } , async (dest,zk,commandeOptions) => {
 
     const {arg , repondre , verifAdmin } = commandeOptions ;
@@ -1153,11 +1150,7 @@ ezra({
   categorie : 'Fredi-Group'
 } , async (dest,zk,commandeOptions) => {
 
-  const {arg , repondre , verifAdmin , superUser , verifezraAdmin } = commandeOptions ;
-
-  if (verifAdmin || superUser) {
-
-    if(!verifezraAdmin){ repondre('You need administrative rights to perform this command') ; return ;}
+  const {arg , repondre  } = commandeOptions ;
 
     if (!arg || arg.length == 0) { repondre('Please enter the country code whose members will be removed') ; return ;}
 
@@ -1184,7 +1177,7 @@ ezra({
 // COMMAND TO NSFW
 ezra({
       nomCom : 'nsfw',
-      categorie : 'Fredi-Group'
+      categorie : 'Makamesco-Group'
 }, async (dest,zk,commandeOptions) => {
   
     const {arg , repondre , verifAdmin } = commandeOptions ;
