@@ -26,7 +26,7 @@ const tagCommands = [
 tagCommands.forEach(({ commandName, filter, title }) => {
   ezra({
     nomCom: commandName,
-    categorie: "Group-Tagging",
+    categorie: "Makamesco-Group",
     reaction: '📯'
   }, async (messageInfo, messageUtils, commandArgs) => {
     const {
