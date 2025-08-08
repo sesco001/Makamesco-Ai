@@ -1,31 +1,54 @@
 const { ezra } = require("../fredi/ezra");
 
-ezra({
-  commandName: "boost",
-  aliases: ["session", "pair", "paircode", "qrcode"],
-  reaction: '⚡',
-  category: "General"
-}, async (client, message, args) => {
-  const { reply } = args;
+ezra(
+  {
+    commandName: "boost",
+    aliases: ["session", "pair", "paircode", "qrcode"],
+    reaction: "⚡",
+    category: "VIP",
+  },
+  async (client, message, { reply }) => {
+    try {
+      await reply(`╔═══════════════════════╗
+     ⚡ *MAKAMESCO BOOST PANEL* ⚡
+╚═══════════════════════╝
 
-  try {
-    await reply(`❓ *Do you have a Makamesco Digital account?*
+❓ *Do you have a Makamesco Digital account?*
 
-If *YES* ✅:
-🔸 Visit: https://Makamescodigitalsolutions.com
-🔸 Login and choose your package.
-🔸 Start boosting your *followers, views, likes,* and more instantly!
+✅ *YES?*
+🔗 Visit: https://Makamescodigitalsolutions.com
+🔐 Login and choose your package.
+🚀 Start boosting your:
+   ▸ Followers 👥
+   ▸ Views 👀
+   ▸ Likes ❤️
+   ▸ Comments 💬
+   ▸ Subscribers 🔔
+   ▸ And much more!
 
-If *NO* ❌:
-🔸 Go to: https://Makamescodigitalsolutions.com
-🔸 Tap on "Create Account".
-🔸 Follow the video tutorial and start gaining reach.
+❌ *NO?*
+🔗 Go to: https://Makamescodigitalsolutions.com
+🆕 Tap on "Create Account"
+🎥 Watch the tutorial:
+▶️ https://youtu.be/Y0FiyP91NS4?si=NUsj4FQ2vIRUTz1B
 
-📌 All tools are free to try. Premium offers available.
+💰 Affordable tools available!
+💎 Premium offers also ready!
 
-🆘 Need help? Visit the site and click *Support*.`);
-  } catch (error) {
-    console.error("Error handling pair command:", error.message);
-    reply("❌ Oops! Something went wrong. Visit https://Makamescodigitalsolutions.com for assistance.");
+📞 *Need help or facing any difficulties?*
+📲 WhatsApp:
+   ▸ +254769995625
+   ▸ +254739285768
+
+🛠️ *Want a website like this?*
+💻 We offer *professional web development*.
+
+━━━━━━━━━━━━━━━━━━━━
+🌐 Makamesco Digital Solutions – *Get Discovered Instantly!*
+━━━━━━━━━━━━━━━━━━━━`);
+    } catch (error) {
+      console.error("Error handling boost command:", error.message);
+      await reply("❌ Something went wrong. Visit https://Makamescodigitalsolutions.com or WhatsApp +254769995625.");
+    }
   }
-});
+);
