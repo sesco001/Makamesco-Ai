@@ -1,4 +1,4 @@
-const { zokou } = require('../framework/zokou');
+const { ezra } = require('../fredi/ezra');
 const Heroku = require('heroku-client');
 const fs = require('fs');
 const s = require("../set");
@@ -28,7 +28,7 @@ function getDescriptionFromEnv(varName) {
 zokou({
   nomCom: "setprefix",
   alias: ["prefix"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "⚙️",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -50,7 +50,7 @@ zokou({
 // MODE COMMAND
 zokou({
   nomCom: "mode",
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🔄",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -84,7 +84,7 @@ zokou({
 zokou({
   nomCom: "autoreacording",
   alias: ["autorecording"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🎙️",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -108,7 +108,7 @@ zokou({
 zokou({
   nomCom: "statusreact",
   alias: ["statusreact"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "❤️",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -131,7 +131,7 @@ zokou({
 zokou({
   nomCom: "readmessage",
   alias: ["autoread"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "📖",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -154,7 +154,7 @@ zokou({
 zokou({
   nomCom: "antibad",
   alias: ["antibad"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🚫",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -177,7 +177,7 @@ zokou({
 zokou({
   nomCom: "autosticker",
   alias: ["autosticker"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🖼️",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -200,7 +200,7 @@ zokou({
 zokou({
   nomCom: "autoreply",
   alias: ["autoreply"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🤖",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -223,7 +223,7 @@ zokou({
 zokou({
   nomCom: "autovoice",
   alias: ["autovoice"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🎤",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -246,7 +246,7 @@ zokou({
 zokou({
   nomCom: "autoreact",
   alias: ["autoreact","areact"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "✨",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -269,7 +269,7 @@ zokou({
 zokou({
   nomCom: "customreacts",
   alias: ["heartreact","dillreact"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "💖",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
@@ -294,7 +294,7 @@ zokou({
 zokou({
   nomCom: "statusreply",
   alias: ["autostatusreply"],
-  categorie: "Dave-Mods",
+  categorie: "Maka-Mods",
   reaction: "🔔",
   nomFichier: __filename,
 }, async (dest, zk, { args, repondre }) => {
