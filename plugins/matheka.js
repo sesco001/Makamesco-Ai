@@ -1,15 +1,34 @@
-const { ezra } = require("../fredi/ezra");
+const util = require('util');
+const fs = require('fs-extra');
+const { ezra } = require(__dirname + "/../fredi/ezra");
+const { format } = require(__dirname + "/../fredi/mesfonctions");
+const os = require("os");
+const moment = require("moment-timezone");
+const s = require(__dirname + "/../set");
+const more = String.fromCharCode(8206)
+const readmore = more.repeat(4001)
 
-ezra(
-  {
-    commandName: "boost",
-    aliases: ["session", "pair", "paircode", "qrcode"],
-    reaction: "⚡",
-    category: "VIP",
-  },
-  async (client, message, { reply }) => {
-    try {
-      await reply(`╔═══════════════════════╗
+ezra({ nomCom: "boost", categorie: "VIP" }, async (dest, zk, commandeOptions) => {
+    let { ms, repondre, mybotpic } = commandeOptions;
+    let { cm } = require(__dirname + "/../fredi/ezra");
+    var coms = {};
+    var mode = "public";
+
+    if ((s.MODE).toLocaleLowerCase() != "yes") {
+        mode = "private";
+    }
+
+    cm.map((com) => {
+        if (!coms[com.categorie]) coms[com.categorie] = [];
+        coms[com.categorie].push(com.nomCom);
+    });
+
+    moment.tz.setDefault('Etc/GMT');
+    const temps = moment().format('HH:mm:ss');
+    const date = moment().format('DD/MM/YYYY');
+
+    let infoMsg = `
+╔═══════════════════════╗
      ⚡ *MAKAMESCO BOOST PANEL* ⚡
 ╚═══════════════════════╝
 
@@ -45,10 +64,50 @@ ezra(
 
 ━━━━━━━━━━━━━━━━━━━━
 🌐 Makamesco Digital Solutions – *Get Discovered Instantly!*
-━━━━━━━━━━━━━━━━━━━━`);
-    } catch (error) {
-      console.error("Error handling boost command:", error.message);
-      await reply("❌ Something went wrong. Visit https://Makamescodigitalsolutions.com or WhatsApp +254769995625.");
+━━━━━━━━━━━━━━━━━━━━
+`;
+
+    let menuMsg = `
+Mode: *${mode.toUpperCase()}*
+Date: *${date}*
+Time: *${temps}*
+RAM Usage: *${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}*
+`;
+
+    var lien = mybotpic();
+
+    if (lien.match(/\.(mp4|gif)$/i)) {
+        try {
+            zk.sendMessage(
+                dest,
+                {
+                    video: { url: lien },
+                    caption: infoMsg + menuMsg,
+                    footer: "Powered by Makamesco Digital",
+                    gifPlayback: true
+                },
+                { quoted: ms }
+            );
+        } catch (e) {
+            console.log("🥵 Menu error " + e);
+            repondre("🥵 Menu error " + e);
+        }
+    } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
+        try {
+            zk.sendMessage(
+                dest,
+                {
+                    image: { url: lien },
+                    caption: infoMsg + menuMsg,
+                    footer: "Powered by Makamesco Digital"
+                },
+                { quoted: ms }
+            );
+        } catch (e) {
+            console.log("🥵 Menu error " + e);
+            repondre("🥵 Menu error " + e);
+        }
+    } else {
+        repondre(infoMsg + menuMsg);
     }
-  }
-);
+});
