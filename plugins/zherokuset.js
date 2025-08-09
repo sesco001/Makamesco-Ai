@@ -58,7 +58,7 @@ zokou({
 
 zokou({
   nomCom: 'autoreact',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -99,7 +99,7 @@ zokou({
 
 zokou({
   nomCom: 'autoreadstatus',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -139,7 +139,7 @@ zokou({
 });
 zokou({
   nomCom: 'antidelete',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -180,7 +180,7 @@ zokou({
 
 zokou({
   nomCom: 'autodownloadstatus',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -221,7 +221,7 @@ zokou({
 
 zokou({
   nomCom: 'startingmessage',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -262,7 +262,7 @@ zokou({
 
 zokou({
   nomCom: 'autoreadmessage',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -303,7 +303,7 @@ zokou({
 
 zokou({
   nomCom: 'pm-permit',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -343,7 +343,7 @@ zokou({
 });
 zokou({
   nomCom: 'autosavecontact',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -383,7 +383,7 @@ zokou({
 });
 zokou({
   nomCom: 'autoreply',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -424,7 +424,7 @@ zokou({
 
 zokou({
   nomCom: 'autobio',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -465,7 +465,7 @@ zokou({
 
 zokou({
   nomCom: 'publicmode',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -506,7 +506,7 @@ zokou({
 
 zokou({
   nomCom: 'autorecord',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -547,7 +547,7 @@ zokou({
 
 zokou({
   nomCom: 'autotyping',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
@@ -588,7 +588,7 @@ zokou({
 
 zokou({
   nomCom: 'alwaysonline',
-  categorie: "Dave-Mods"
+  categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
   const { ms, repondre, superUser, auteurMessage, arg } = context;
 
