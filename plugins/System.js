@@ -423,7 +423,7 @@ ezra({
         `https://api.heroku.com/apps/${herokuAppName}/builds`,
         {
           source_blob: {
-            url: "https://github.com/sesco001/Makamesco_md",
+            url: "https://github.com/sesco001/Makamesco_md/tarball/main",
           },
         },
         {
