@@ -1,4 +1,4 @@
-const { zokou } = require('../framework/zokou');
+const { ezra } = require('../fredi/ezra');
 const Heroku = require('heroku-client');
 const fs = require('fs');
 const s = require("../set");
