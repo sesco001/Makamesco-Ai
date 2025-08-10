@@ -4,7 +4,7 @@ const fs = require('fs');
 const s = require("../set");
 const axios = require("axios");
 const conf = require(__dirname + "/../set");
-const { sleep } = require("../framework/index");
+const { sleep } = require("../fredi/index");
 
 // Helper to save config file
 function saveConfig() {
@@ -25,7 +25,7 @@ function getDescriptionFromEnv(varName) {
 }
 
 // PREFIX COMMAND
-zokou({
+ezra({
   nomCom: "setprefix",
   alias: ["prefix"],
   categorie: "Maka-Mods",
@@ -48,7 +48,7 @@ zokou({
 });
 
 // MODE COMMAND
-zokou({
+ezra({
   nomCom: "mode",
   categorie: "Maka-Mods",
   reaction: "🔄",
@@ -81,7 +81,7 @@ zokou({
 
 
 // AUTORECORDING COMMAND
-zokou({
+ezra({
   nomCom: "autoreacording",
   alias: ["autorecording"],
   categorie: "Maka-Mods",
@@ -105,7 +105,7 @@ zokou({
 
 
 // STATUSREACT COMMAND
-zokou({
+ezra({
   nomCom: "statusreact",
   alias: ["statusreact"],
   categorie: "Maka-Mods",
@@ -128,7 +128,7 @@ zokou({
 });
 
 // READMESSAGE COMMAND
-zokou({
+ezra({
   nomCom: "readmessage",
   alias: ["autoread"],
   categorie: "Maka-Mods",
@@ -151,7 +151,7 @@ zokou({
 });
 
 // ANTIBAD COMMAND
-zokou({
+ezra({
   nomCom: "antibad",
   alias: ["antibad"],
   categorie: "Maka-Mods",
@@ -174,7 +174,7 @@ zokou({
 });
 
 // AUTOSTICKER COMMAND
-zokou({
+ezra({
   nomCom: "autosticker",
   alias: ["autosticker"],
   categorie: "Maka-Mods",
@@ -197,7 +197,7 @@ zokou({
 });
 
 // AUTOREPLY COMMAND
-zokou({
+ezra({
   nomCom: "autoreply",
   alias: ["autoreply"],
   categorie: "Maka-Mods",
@@ -220,7 +220,7 @@ zokou({
 });
 
 // AUTOVOICE COMMAND
-zokou({
+ezra({
   nomCom: "autovoice",
   alias: ["autovoice"],
   categorie: "Maka-Mods",
@@ -243,7 +243,7 @@ zokou({
 });
 
 // AUTOREACT COMMAND
-zokou({
+ezra({
   nomCom: "autoreact",
   alias: ["autoreact","areact"],
   categorie: "Maka-Mods",
@@ -266,7 +266,7 @@ zokou({
 });
 
 // CUSTOMREACT COMMAND
-zokou({
+ezra({
   nomCom: "customreacts",
   alias: ["heartreact","dillreact"],
   categorie: "Maka-Mods",
@@ -291,7 +291,7 @@ zokou({
 
 
 // STATUSREPLY COMMAND
-zokou({
+ezra({
   nomCom: "statusreply",
   alias: ["autostatusreply"],
   categorie: "Maka-Mods",
