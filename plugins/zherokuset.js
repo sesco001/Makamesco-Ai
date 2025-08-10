@@ -14,7 +14,7 @@ function getDescriptionFromEnv(varName) {
 }
 
 // Anti-call function setup
-zokou({
+ezra({
   nomCom: 'anticall',
   categorie: "Dave-Mods"
 }, async (chatId, zk, context) => {
@@ -56,7 +56,7 @@ zokou({
 });
 
 
-zokou({
+ezra({
   nomCom: 'autoreact',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -97,7 +97,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autoreadstatus',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -137,7 +137,7 @@ zokou({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-zokou({
+ezra({
   nomCom: 'antidelete',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -178,7 +178,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autodownloadstatus',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -219,7 +219,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'startingmessage',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -260,7 +260,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autoreadmessage',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -301,7 +301,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'pm-permit',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -341,7 +341,7 @@ zokou({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-zokou({
+ezra({
   nomCom: 'autosavecontact',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -381,7 +381,7 @@ zokou({
     await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
   }
 });
-zokou({
+ezra({
   nomCom: 'autoreply',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -422,7 +422,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autobio',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -463,7 +463,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'publicmode',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -504,7 +504,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autorecord',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -545,7 +545,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'autotyping',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
@@ -586,7 +586,7 @@ zokou({
   }
 });
 
-zokou({
+ezra({
   nomCom: 'alwaysonline',
   categorie: "Maka-Mods"
 }, async (chatId, zk, context) => {
