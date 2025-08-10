@@ -8,7 +8,7 @@ ezra(
   {
     nomCom: "steal",
     aliases: ["zip", "clone"],
-    categorie: "NEW"
+    categorie: "download"
   },
   async (dest, zk, context) => {
     const { ms, repondre, arg } = context;
