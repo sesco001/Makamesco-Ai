@@ -9,7 +9,7 @@
 
 <!-- Fork Repository -->
 <p align="center">
-  <a href="https://github.com/sesco001/Makamesco_md1/fork" target="_blank">
+  <a href="https://github.com/sesco001/Makamesco_md/fork" target="_blank">
     <img src="https://img.shields.io/badge/FORK%20REPOSITORY-purple?style=for-the-badge&logo=github" alt="Fork Makamesco_md" width="240">
   </a>
 </p>
@@ -17,31 +17,14 @@
 <!-- Get Session ID -->
 <p align="center">
   <a href="https://pairmakamesco.onrender.com" target="_blank">
-    <img src="https://img.shields.io/badge/GET-SESSION ID HERE-green?style=for-the-badge&logo=kenya" alt="Get Session ID" width="230">
+    <img src="https://img.shields.io/badge/GET-SESSION%20ID%20HERE-green?style=for-the-badge&logo=kenya" alt="Get Session ID" width="230">
   </a>
 </p>
 
-<!-- 📤 Deployment Options -->
-<h2 align="center">📤 Deployment Options</h2>
-
-<!-- Deploy to Heroku -->
+<!-- Deploy Button -->
 <p align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/sesco001/Makamesco_md" target="_blank">
-    <img src="https://img.shields.io/badge/DEPLOY%20ON-HEROKU-blueviolet?style=for-the-badge&logo=heroku" alt="Deploy on Heroku" width="240">
-  </a>
-</p>
-
-<!-- Deploy to Render -->
-<p align="center">
-  <a href="https://render.com/" target="_blank">
-    <img src="https://img.shields.io/badge/DEPLOY%20ON-RENDER-black?style=for-the-badge&logo=render" alt="Deploy on Render" width="240">
-  </a>
-</p>
-
-<!-- Download ZIP (renamed as Deployment on Panel) -->
-<p align="center">
-  <a href="https://github.com/sesco001/Makamesco_md/archive/refs/heads/main.zip" download>
-    <img src="https://img.shields.io/badge/DEPLOYMENT%20ON-PANEL-orange?style=for-the-badge&logo=github" alt="Download ZIP as Deployment" width="240">
+  <a href="https://spank-ver.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/DEPLOY-CLICK%20HERE-red?style=for-the-badge&logo=vercel" alt="Deploy Now" width="240">
   </a>
 </p>
 
