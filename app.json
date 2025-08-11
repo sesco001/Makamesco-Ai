@@ -164,7 +164,7 @@
 
       "description": "Set 'yes' to make your bot public or 'no' to keep it private",
 
-      "value": "no",
+      "value": "yes",
 
       "required": false
 
@@ -214,7 +214,7 @@
 
       "description": "you must add your bot image url.Get your image url now and fill it here",
 
-      "value": "https://files.catbox.moe/sigghy.jpg",
+      "value": "https://files.catbox.moe/uvrcoi.jpg",
 
       "required": true
 
@@ -254,7 +254,7 @@
 
       "description": "Set 'yes' to display a starting bot message or 'no' to disable it",
 
-      "value": "no",
+      "value": "yes",
 
       "required": true
 
@@ -345,4 +345,5 @@
   ]
 
 }
+
 
