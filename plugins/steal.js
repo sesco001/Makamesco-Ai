@@ -47,12 +47,12 @@ ezra(
           document: { url: apiUrl },
           fileName: `${fileName}`,
           mimetype: "application/zip",
-          caption: `📦 GitHub Zip by 𝐃𝐀𝐕𝐄-𝐗𝐌𝐃`,
+          caption: `📦 GitHub Zip by MAKAMESCO-𝐗𝐌𝐃`,
           contextInfo: {
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: "120363400480173280@newsletter", // Yours
-              newsletterName: "𝐃𝐀𝐕𝐄-𝐗𝐌𝐃",
+              newsletterJid: "120363418628641913@newsletter", // Yours
+              newsletterName: "MAKAMESCO-𝐗𝐌𝐃",
               serverMessageId: 1,
             },
           },
