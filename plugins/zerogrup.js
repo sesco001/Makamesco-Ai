@@ -61,10 +61,10 @@ ezra({ nomCom: "getallmembers", categorie: 'Fredi-Group', reaction: "📣" }, as
   let mess = Array.isArray(arg) && arg.length ? arg.join(' ') : 'No message provided';
   let membresGroupe = verifGroupe && infosGroupe ? infosGroupe.participants || [] : [];
 
-  let tag = `☢️MAKAMESCO-MD ☢️\n\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
+  let tag = `☢️MAKAMESCO-MD☢️\n\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
         🌟 *GROUP MEMBERS GIDS* 🌟
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n
-> regards makamesco®\n\n`;
+> regards frediezra®\n\n`;
 
   const emoji = ['💡', '☢️', '🗡️', '🖌️', '🪫', '🔋', '⚙️', '🕶️', '🌡️', '✏️', '📌', '©️', '$','®️','™️','⚔️','🔏'];
   const randomEmoji = emoji[Math.floor(Math.random() * emoji.length)];
@@ -107,7 +107,7 @@ ezra({ nomCom: "tagall", categorie: 'Fredi-Group', reaction: "📯" }, async (de
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   var tag = ""; 
   tag += `┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
-        🌟 *MAKAMESCO-MD TAGS* 🌟
+        🌟 *MAKAMESCO TAGS* 🌟
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Autor : *${nomAuteurMessage}* 👋 
@@ -149,7 +149,7 @@ ezra({ nomCom: "link", categorie: 'Fredi-Group', reaction: "🚜" }, async (dest
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️MAKAMESCO MD☢️`
+Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️MAKAMESCO-MD☢️`
   repondre(mess)
 
 
@@ -327,7 +327,7 @@ ezra({ nomCom: "remove", categorie: 'Fredi-Group', reaction: "😱" }, async (de
             if (admin == false) {
               const gifLink = "https://raw.githubusercontent.com/mr-X-force/LUCKY-MD-XFORCE/main/media/remover.gif"
               var sticker = new Sticker(gifLink, {
-                pack: 'MAKAMESCP-MD-XFORCE', // The pack name
+                pack: 'Makamesco-MD', // The pack name
                 author: nomAuteurMessage, // The author name
                 type: StickerTypes.FULL, // The sticker type
                 categories: ['🤩', '🎉'], // The sticker category
@@ -417,7 +417,7 @@ ezra({ nomCom: "info", categorie: 'Fredi-Group' }, async (dest, zk, commandeOpti
 
     let mess = {
       image: { url: ppgroup },
-      caption:  `☢️MAKAMESCO-MD-XFORCE☢️\n\n*━━━━『𝙶𝚁𝙾𝚄𝙿 𝙸𝙽𝙵𝙾』━━━━*\n\n*🎐Name:* ${info.subject}\n\n*🔩Group's ID:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
+      caMAKAMESCO-MD-XFORCE☢️\n\n*━━━━『𝙶𝚁𝙾𝚄𝙿 𝙸𝙽𝙵𝙾』━━━━*\n\n*🎐Name:* ${info.subject}\n\n*🔩Group's ID:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
     }
 
 
@@ -844,7 +844,7 @@ ezra({nomCom:"hidetag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,co
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'MAKAMESCO-MD',
+          pack: 'Makamesco-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
@@ -952,7 +952,7 @@ ezra({nomCom:"htag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,comma
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'MAKAMESCO-MD',
+          pack: 'Makamesco-MD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
