@@ -29,6 +29,11 @@
       "description": "Your phone number (exclude '+' and area code, e.g., '254739385768')",
       "value": "254769995625",
       "required": true
+    },
+    "PUBLIC_MODE": {
+      "description": "Set 'yes' to make your bot public or 'no' to keep it private",
+      "value": "yes",
+      "required": true
     }
   },
   "formation": {
