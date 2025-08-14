@@ -1,7 +1,7 @@
 {
   "name": "✧MAKAMESCO-MD✧ MULT DEVICE BOT",
   "description": "MAKAMESCO-MD Whatsapp device bot made by MAKAMESCO DIGITALSOLUTIONS enable a user to use whatsapp with more powerful features.",
-  "repository": "https://github.com/sesco001/Makamesco_md",
+  "repository": "https://github.com/mesh-matheka/Makamesco_md",
   "success_url": "/",
   "stack": "container",
   "env": {
@@ -12,6 +12,11 @@
     },
     "HEROKU_API_KEY": {
       "description": "Insert your Heroku API key (required)",
+      "value": "",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Insert your Heroku app name (required)",
       "value": "",
       "required": true
     },
