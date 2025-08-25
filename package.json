@@ -17,7 +17,8 @@
     "MakamescoMd",
     "whatsapp",
     "whatsapp-bot",
-    "frediezra"
+    "frediezra",
+    "HansTz_Tech"
   ],
   "author": "Makamesco",
   "license": "ISC",
@@ -26,7 +27,7 @@
     "@hapi/boom": "^10.0.1",
     "@types/node": "^18.0.6", 
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "https://github.com:Slnckyami/Kyabaileys",
+    "@whiskeysockets/baileys": "npm:baileys-pro@0.0.5",
     "@xaviabot/fb-downloader": "^1.0.14",
     "acrcloud": "^1.4.0", 
     "aptoide-scraper": "^1.0.1",
@@ -72,6 +73,7 @@
    
   }
 }
+
 
 
 
