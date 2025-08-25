@@ -61,7 +61,7 @@ ezra({ nomCom: "getallmembers", categorie: 'Fredi-Group', reaction: "📣" }, as
   let mess = Array.isArray(arg) && arg.length ? arg.join(' ') : 'No message provided';
   let membresGroupe = verifGroupe && infosGroupe ? infosGroupe.participants || [] : [];
 
-  let tag = `☢️LUCKY-MD-XFORCE☢️\n\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
+  let tag = `☢️Makamesco-MD-XFORCE☢️\n\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
         🌟 *GROUP MEMBERS GIDS* 🌟
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n
 > regards frediezra®\n\n`;
@@ -107,7 +107,7 @@ ezra({ nomCom: "tagall", categorie: 'Fredi-Group', reaction: "📯" }, async (de
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   var tag = ""; 
   tag += `┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  
-        🌟 *LUCKY-MD-XFORCE TAGS* 🌟
+        🌟 *MAKAMESCO TAGS* 🌟
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Autor : *${nomAuteurMessage}* 👋 
@@ -149,7 +149,7 @@ ezra({ nomCom: "link", categorie: 'Fredi-Group', reaction: "🚜" }, async (dest
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️LUCKY-MD-XFORCE☢️`
+Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  ☢️MAKAMESCO☢️`
   repondre(mess)
 
 
@@ -736,7 +736,7 @@ ezra({nomCom:"tag",categorie:'Fredi-Group',reaction:"🎤"},async(dest,zk,comman
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'LUCKY-MD-XFORCE',
+          pack: 'MAKAMESCO',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
