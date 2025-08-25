@@ -14,20 +14,19 @@
   "keywords": [
     "bot",
     "Baileys",
-    "MakamescoMd",
+    "jeepers-creeper-xmd",
     "whatsapp",
     "whatsapp-bot",
-    "frediezra",
-    "HansTz_Tech"
+    "frediezra"
   ],
-  "author": "Makamesco",
+  "author": "frediezra",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",  
     "@hapi/boom": "^10.0.1",
     "@types/node": "^18.0.6", 
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "npm:baileys-pro@0.0.5",
+    "@whiskeysockets/baileys": "npm:asitha-new-v99",
     "@xaviabot/fb-downloader": "^1.0.14",
     "acrcloud": "^1.4.0", 
     "aptoide-scraper": "^1.0.1",
@@ -73,9 +72,3 @@
    
   }
 }
-
-
-
-
-
-
