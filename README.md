@@ -5,7 +5,7 @@
 <a href="#"><img src="https://files.catbox.moe/sigghy.jpg" alt="Makamesco Banner" style="display: block; margin: 0 auto; max-width: 100%;"/></a>
 
 <!-- 🚀 One-Click Setup Buttons -->
-<h2 align="center">🚀 One-Click Setup Buttons</h2>
+<h2 align="center">🚀 One-Click Setup</h2>
 
 <!-- Fork Repository -->
 <p align="center">
@@ -17,23 +17,35 @@
 <!-- Get Session ID -->
 <p align="center">
   <a href="https://makamesco-pair.onrender.com" target="_blank">
-    <img src="https://img.shields.io/badge/GET-SESSION%20ID%20HERE-green?style=for-the-badge&logo=kenya" alt="Get Session ID" width="230">
+    <img src="https://img.shields.io/badge/GET-SESSION%20ID-green?style=for-the-badge&logo=key" alt="Get Session ID" width="230">
   </a>
 </p>
 
-<!-- Deploy Button -->
+<!-- Deploy Button (Vercel) -->
 <p align="center">
   <a href="https://spank-ver.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/DEPLOY-CLICK%20HERE-red?style=for-the-badge&logo=vercel" alt="Deploy Now" width="240">
+    <img src="https://img.shields.io/badge/DEPLOY%20ON-VERCEL-black?style=for-the-badge&logo=vercel" alt="Deploy on Vercel" width="240">
   </a>
 </p>
 
-<!-- 🧩 Extras -->
-<h2 align="center">🧩 Extras</h2>
+<!-- Deploy Button (Heroku) -->
+<p align="center">
+  <a href="https://www.heroku.com/deploy?template=https://github.com/sesco001/Makamesco-Ai" target="_blank">
+    <img src="https://img.shields.io/badge/DEPLOY%20ON-HEROKU-430098?style=for-the-badge&logo=heroku" alt="Deploy on Heroku" width="240">
+  </a>
+</p>
 
-<ul align="center">
-  <li><strong>🔗 BOOST FOLLOWERS:</strong> <a href="https://makamescodigitalsolutions.com" target="_blank">makamescodigitalsolutions.com</a></li>
-  <li><strong>▶️ Tutorial Video:</strong> <a href="https://youtu.be/Y0FiyP91NS4?si=sTLnvF0LZoqRnHFE" target="_blank">Watch how to add & boost</a></li>
-  <li><strong>💬 Need help?</strong> <a href="https://t.me/yourtelegramlink" target="_blank">Join our Telegram</a></li>
-  <li><strong>🔥 Promotion:</strong> Are you tired of getting small media presence? <br><em>Get followers, subscribers, likes, and views today!</em></li>
-</ul>
+<!-- ⭐ Followers Section -->
+<h2 align="center">⭐ Boost & Follow</h2>
+
+<p align="center">
+  <a href="https://makamescodigitalsolutions.com" target="_blank">
+    <img src="https://img.shields.io/badge/BOOST%20FOLLOWERS%20HERE-blue?style=for-the-badge&logo=firefox" alt="Boost Followers" width="260">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://whatsapp.com/channel/0029Vb5wVbsEQIanKXKYrq1c" target="_blank">
+    <img src="https://img.shields.io/badge/JOIN-OUR%20CHANNEL-green?style=for-the-badge&logo=whatsapp" alt="Join Channel" width="240">
+  </a>
+</p>
