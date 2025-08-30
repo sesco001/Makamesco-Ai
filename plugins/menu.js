@@ -99,7 +99,7 @@ ezra({
                 externalAdReply: {
                     title: "🚨MAKAMESCO-MD 🚨",
                     body: "🔑🗝️ Command List",
-                    thumbnailUrl: "https://files.catbox.moe/sigghy.jpg",
+                    thumbnailUrl: "",
                     sourceUrl: "https://whatsapp.com/channel/0029VbAEL9r5vKA7RCdnYG0S",
                     mediaType: 1,
                     renderLargerThumbnail: true
