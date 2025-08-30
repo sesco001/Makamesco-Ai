@@ -1,5 +1,5 @@
-const {zokou }= require ('../fredi/ezra') ;
-const {addstickcmd, deleteCmd, getCmdById, inStickCmd , getAllStickCmds} = require('../bdd/stickcmd') ;
+const {ezra }= require ('../fredi/ezra') ;
+const {addstickcmd, deleteCmd, getCmdById, inStickCmd , getAllStickCmds} = require('../fredie/stickcmd') ;
 
 
 
