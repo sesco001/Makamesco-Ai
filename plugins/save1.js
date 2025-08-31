@@ -1,4 +1,4 @@
-const { ezra } = require('../frefi/ezra');
+const { ezra } = require('../fredi/ezra');
 const axios = require("axios")
 let { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("../fredie/banUser");
@@ -13,7 +13,7 @@ const sleep =  (ms) =>{
   } ;
 
 
-  ezra({ nomCom: "tgs", categorie: "Maka-New" }, async (dest, zk, commandeOptions) => {
+  ezra({ nomCom: "tgs", categorie: "Dave-New" }, async (dest, zk, commandeOptions) => {
     const { ms, repondre, arg, nomAuteurMessage, superUser } = commandeOptions;
   
     if (!superUser) {
@@ -94,7 +94,7 @@ const sleep =  (ms) =>{
     }
   });
 
-ezra({ nomCom: "crew", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "crew", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg, auteurMessage, superUser, auteurMsgRepondu, msgRepondu } = commandeOptions;
 
   if (!superUser) { repondre("only modds can use this command"); return };
@@ -111,7 +111,7 @@ ezra({ nomCom: "crew", categorie: "Maka-Mods" }, async (dest, zk, commandeOption
 });
 
 
-ezra({ nomCom: "jid", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "jid", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -130,7 +130,7 @@ ezra({ nomCom: "jid", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions
 
   
 
-ezra({ nomCom: "block", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "block", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -154,7 +154,7 @@ ezra({ nomCom: "block", categorie: "Maka-Mods" }, async (dest, zk, commandeOptio
 
   });
 
-ezra({ nomCom: "unblock", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "unblock", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -214,7 +214,7 @@ await zk.groupParticipantsUpdate(
 
 ezra({
     nomCom: 'ban',
-    categorie: 'Maka-Mods',
+    categorie: 'Dave-Mods',
 }, async (dest, zk, commandeOptions) => {
 
     const { ms, arg, auteurMsgRepondu, msgRepondu , repondre,prefixe,superUser } = commandeOptions;
@@ -263,7 +263,7 @@ ezra({
 
 ezra({
     nomCom: 'bangroup',
-    categorie: 'Maka-Mods',
+    categorie: 'Dave-Mods',
 }, async (dest, zk, commandeOptions) => {
 
     const { ms, arg, auteurMsgRepondu, msgRepondu , repondre,prefixe,superUser,verifGroupe } = commandeOptions;
@@ -311,7 +311,7 @@ ezra({
 
 ezra({
   nomCom: 'onlyadmin',
-  categorie: 'Maka-Group',
+  categorie: 'Dave-Group',
 }, async (dest, zk, commandeOptions) => {
 
   const { ms, arg, auteurMsgRepondu, msgRepondu , repondre,prefixe,superUser,verifGroupe , verifAdmin } = commandeOptions;
@@ -358,7 +358,7 @@ if(!verifGroupe) {repondre('order reservation for groups' ) ; return };
 
 ezra({
   nomCom: 'sudo',
-  categorie: 'Maka-Mods',
+  categorie: 'Dave-Mods',
 }, async (dest, zk, commandeOptions) => {
 
   const { ms, arg, auteurMsgRepondu, msgRepondu , repondre,prefixe,superUser } = commandeOptions;
@@ -405,7 +405,7 @@ if (!superUser) {repondre('This command is only allowed to the bot owner') ; ret
 });
 
 
-ezra({ nomCom: "save", categorie: "Maka-Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "save", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { repondre , msgRepondu , superUser, auteurMessage } = commandeOptions;
   
@@ -491,7 +491,7 @@ ezra({ nomCom: "save", categorie: "Maka-Mods" }, async (dest, zk, commandeOption
 
 ezra({
   nomCom : 'mention',
-  categorie : 'Maka-Mods',
+  categorie : 'Dave-Mods',
 } , async (dest,zk,commandeOptions) => {
 
  const {ms , repondre ,superUser , arg} = commandeOptions ;
