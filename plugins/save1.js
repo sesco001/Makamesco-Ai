@@ -130,7 +130,7 @@ ezra({ nomCom: "jid", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions
 
   
 
-zokou({ nomCom: "block", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "block", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -405,7 +405,7 @@ if (!superUser) {repondre('This command is only allowed to the bot owner') ; ret
 });
 
 
-zokou({ nomCom: "save", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "save", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { repondre , msgRepondu , superUser, auteurMessage } = commandeOptions;
   
