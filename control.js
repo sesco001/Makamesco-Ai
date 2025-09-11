@@ -703,7 +703,7 @@ try {
         //end event message
 
 /******** group event update ****************/
-const { recupevents } = require('./bdd/welcome'); 
+const { recupevents } = require('./lib/welcome'); 
 
 zk.ev.on('group-participants.update', async (group) => {
     console.log(group);
@@ -783,7 +783,7 @@ zk.ev.on('group-participants.update', async (group) => {
         
     async  function activateCrons() {
         const cron = require('node-cron');
-        const { getCron } = require('./bdd/cron');
+        const { getCron } = require('./lib/cron');
 
           let crons = await getCron();
           console.log(crons);
