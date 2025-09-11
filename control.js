@@ -1142,7 +1142,7 @@ zk.ev.on("messages.upsert", async (m) => {
                await fs.unlink("st1.webp");
 
             } else if(action === 'warn') {
-                const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./bdd/warn') ;
+                const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./lib/warn') ;
 
     let warn = await getWarnCountByJID(auteurMessage) ; 
     let warnlimit = conf.WARN_COUNT
@@ -1234,7 +1234,7 @@ zk.ev.on("messages.upsert", async (m) => {
         //fin événement message
 
 /******** evenement groupe update ****************/
-const { recupevents } = require('./bdd/welcome'); 
+const { recupevents } = require('./lib/welcome'); 
 
 zk.ev.on('group-participants.update', async (group) => {
     console.log(group);
@@ -1323,7 +1323,7 @@ zk.ev.on('group-participants.update', async (group) => {
 
    async  function activateCrons() {
         const cron = require('node-cron');
-        const { getCron } = require('./bdd/cron');
+        const { getCron } = require('./lib/cron');
 
           let crons = await getCron();
           console.log(crons);
