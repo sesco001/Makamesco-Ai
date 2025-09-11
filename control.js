@@ -611,7 +611,7 @@ if (conf.AUDIO_REPLY === "yes") {
             }
                
             var membreGroupe = verifGroupe ? ms.key.participant : '';
-            const { getAllSudoNumbers } = require("./bdd/sudo");
+            const { getAllSudoNumbers } = require("./lib/sudo");
             const nomAuteurMessage = ms.pushName;
             const davetech = '254104260236';
             const dave = '254111687009';
