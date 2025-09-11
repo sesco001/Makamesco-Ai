@@ -932,7 +932,7 @@ zk.ev.on("messages.upsert", async (m) => {
 
                     if(superUser) {console.log('hummm') ; return ;} 
              
-                    let mbd = require('./bdd/mention') ;
+                    let mbd = require('./lib/mention') ;
 
                     let alldata = await mbd.recupererToutesLesValeurs() ;
 
@@ -1387,10 +1387,10 @@ zk.ev.on('group-participants.update', async (group) => {
                 console.log("💠 DAVE-XMD is Online 🕸\n\n");
                 //chargement des luckycmd 
                 console.log("Loading 💠 DAVE-XMD Plugins...\n");
-                fs.readdirSync(__dirname + "/daveplugins").forEach((fichier) => {
+                fs.readdirSync(__dirname + "/plugins").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
-                            require(__dirname + "/daveplugins/" + fichier);
+                            require(__dirname + "/plugins/" + fichier);
                             console.log(fichier + "💠 DAVE-XMD Plugins Installed Successfully✔️");
                         }
                         catch (e) {
