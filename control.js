@@ -46,8 +46,8 @@ const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("./lib
 const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./lib/banGroup");
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./lib/onlyAdmin");
 //const //{loadCmd}=require("/fredi/mesfonctions")
-let { reagir } = require(__dirname + "/fedi/app");
-var session = conf.session.replace(/dave~/g, "");
+let { reagir } = require(__dirname + "/fredi/app");
+var session = conf.session.replace(/MAKAMESCO-MD<=>/g, '');
 const prefixe = conf.PREFIXE;
 const more = String.fromCharCode(8206)
 const readmore = more.repeat(4001)
