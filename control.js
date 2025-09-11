@@ -38,14 +38,14 @@ let fs = require("fs-extra");
 let path = require("path");
 const FileType = require('file-type');
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
-const { verifierEtatJid, recupererActionJid } = require("./bdd/antilien");
-const { atbverifierEtatJid, atbrecupererActionJid } = require("./bdd/antibot");
-let evt = require(__dirname + "/framework/zokou");
-const { isUserBanned, addUserToBanList, removeUserFromBanList } = require("./bdd/banUser");
-const { addGroupToBanList, isGroupBanned, removeGroupFromBanList } = require("./bdd/banGroup");
-const { isGroupOnlyAdmin, addGroupToOnlyAdminList, removeGroupFromOnlyAdminList } = require("./bdd/onlyAdmin");
-let { reagir } = require(__dirname + "/framework/app");
-var session = conf.session.replace(/DAVE-XMD-WHATSAPP-BOT;;;=>/g, "");
+const { verifierEtatJid, recupererActionJid } = require("./lib/antilien");
+const { atbverifierEtatJid, atbrecupererActionJid } = require("./lib/antibot");
+let evt = require(__dirname + "/fredi/ezra");
+const { isUserBanned, addUserToBanList, removeUserFromBanList } = require("./lib/banUser");
+const { addGroupToBanList, isGroupBanned, removeGroupFromBanList } = require("./lib/banGroup");
+const { isGroupOnlyAdmin, addGroupToOnlyAdminList, removeGroupFromOnlyAdminList } = require("./lib/onlyAdmin");
+let { reagir } = require(__dirname + "/fredi/app");
+var session = conf.session.replace(/MAKAMESCO-MD<=>/g, "");
 const prefixe = conf.PREFIXE;
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
@@ -74,7 +74,7 @@ setTimeout(() => {
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
-            browser: ["DAVE-XMD", "Chrome", "1.0.0"],
+            browser: ["MAKAMESCO-XMD", "Chrome", "1.0.0"],
             printQRInTerminal: true,
             markOnlineOnConnect: false,
             auth: {
@@ -132,7 +132,7 @@ setTimeout(() => {
             }
 
             var membreGroupe = verifGroupe ? ms.key.participant : '';
-            const { getAllSudoNumbers } = require("./bdd/sudo");
+            const { getAllSudoNumbers } = require("./lib/sudo");
             const nomAuteurMessage = ms.pushName;
             const dj = '254111687009';
             const dj2 = '254104260236';
@@ -143,7 +143,7 @@ setTimeout(() => {
             var dev = [dj, dj2].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
 
             function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
-            console.log("\tDAVE-XMD ONLINE ⚡");
+            console.log("\tMAKAMESCO-XMD ONLINE ⚡");
             console.log("==== Message Received ======");
             if (verifGroupe) {
                 console.log("Message from group 🗨️: " + nomGroupe);
@@ -232,8 +232,8 @@ if (ms.message.protocolMessage && ms.message.protocolMessage.type === 0 && (conf
     let key = ms.message.protocolMessage.key;
 
     try {
-        let st = './davedb/store.json';
-        let backupSt = './davedb/store_backup.json';
+        let st = './maka/store.json';
+        let backupSt = './maka/store_backup.json';
         let data;
 
         // Ensure store.json exists, create if missing
@@ -468,7 +468,7 @@ try {
 
     if (!verifZokAdmin) {
       await zk.sendMessage(origineMessage, {
-        text: `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n❌ I'm not admin! Can't delete links.`
+        text: `MAKAMESCO-𝐗𝐌𝐃\n\n❌ I'm not admin! Can't delete links.`
       }, { quoted: ms });
       return;
     }
@@ -481,7 +481,7 @@ try {
     };
     const gifLink = "https://raw.githubusercontent.com/giftdee/DAVE-XMD/main/media/remover.gif";
     const sticker = new Sticker(gifLink, {
-      pack: '𝐃𝐀𝐕𝐄-𝐗𝐌𝐃',
+      pack: 'MAKAMESCO-𝐗𝐌𝐃',
       author: conf.OWNER_NAME,
       type: StickerTypes.FULL,
       categories: ['⚠️'],
@@ -494,7 +494,7 @@ try {
     const action = await recupererActionJid(origineMessage) || 'delete';
 
     if (action === 'remove') {
-      const txt = `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ LINK VIOLATION!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ ACTION: REMOVED\n◈━━━━━━━━━━━━━━━━◈`;
+      const txt = `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ LINK VIOLATION!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ ACTION: REMOVED\n◈━━━━━━━━━━━━━━━━◈`;
       await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
       await (0, baileys_1.delay)(800);
       await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
@@ -502,14 +502,14 @@ try {
         await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
       } catch (e) {
         await zk.sendMessage(origineMessage, {
-          text: `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ REMOVAL FAILED!\n│❒ NEED ADMIN POWER\n◈━━━━━━━━━━━━━━━━◈`
+          text: `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ REMOVAL FAILED!\n│❒ NEED ADMIN POWER\n◈━━━━━━━━━━━━━━━━◈`
         }, { quoted: ms });
       }
       await zk.sendMessage(origineMessage, { delete: key });
       await fs.unlink("st1.webp");
     } 
     else if (action === 'delete') {
-      const txt = `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ LINK DELETED!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ NEXT: WARNING\n◈━━━━━━━━━━━━━━━━◈`;
+      const txt = `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ LINK DELETED!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ NEXT: WARNING\n◈━━━━━━━━━━━━━━━━◈`;
       await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
       await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
       await zk.sendMessage(origineMessage, { delete: key });
@@ -521,7 +521,7 @@ try {
       let warnLimit = conf.WARN_COUNT;
       
       if (warn >= warnLimit) {
-        const kikmsg = `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ MAX WARNINGS!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ ACTION: BANNED\n◈━━━━━━━━━━━━━━━━◈`;
+        const kikmsg = `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ MAX WARNINGS!\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ ACTION: BANNED\n◈━━━━━━━━━━━━━━━━◈`;
         await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
         await zk.sendMessage(origineMessage, { text: kikmsg, mentions: [auteurMessage] }, { quoted: ms });
         try {
@@ -529,13 +529,13 @@ try {
           await resetWarnCountByJID(auteurMessage);
         } catch (e) {
           await zk.sendMessage(origineMessage, {
-            text: `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ BAN FAILED!\n│❒ NEED ADMIN\n◈━━━━━━━━━━━━━━━━◈`
+            text: `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ BAN FAILED!\n│❒ NEED ADMIN\n◈━━━━━━━━━━━━━━━━◈`
           }, { quoted: ms });
         }
         await zk.sendMessage(origineMessage, { delete: key });
       } else {
         const remaining = warnLimit - warn;
-        const msg = `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ WARNING #${warn+1}\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ LEFT: ${remaining}\n◈━━━━━━━━━━━━━━━━◈`;
+        const msg = `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ WARNING #${warn+1}\n│❒ USER: @${auteurMessage.split("@")[0]}\n│❒ LEFT: ${remaining}\n◈━━━━━━━━━━━━━━━━◈`;
         await ajouterUtilisateurAvecWarnCount(auteurMessage);
         await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
         await zk.sendMessage(origineMessage, { text: msg, mentions: [auteurMessage] }, { quoted: ms });
@@ -547,7 +547,7 @@ try {
 } catch (e) {
   console.log("Anti-link crash:", e);
   await zk.sendMessage(origineMessage, {
-    text: `𝐃𝐀𝐕𝐄-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ SYSTEM ERROR!\n│❒ ${e.message}\n◈━━━━━━━━━━━━━━━━◈`
+    text: `MAKAMESCO-𝐗𝐌𝐃\n\n◈━━━━━━━━━━━━━━━━◈\n│❒ SYSTEM ERROR!\n│❒ ${e.message}\n◈━━━━━━━━━━━━━━━━◈`
   }, { quoted: ms });
 }
     
@@ -575,7 +575,7 @@ try {
            // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
             const gifLink = "https://raw.githubusercontent.com/giftdee/DAVE-XMD/main/media/remover.gif";
             var sticker = new Sticker(gifLink, {
-                pack: 'DAVE-XMD',
+                pack: 'MAKAMESCO-XMD',
                 author: conf.OWNER_NAME,
                 type: StickerTypes.FULL,
                 categories: ['🤩', '🎉'],
@@ -719,7 +719,7 @@ zk.ev.on('group-participants.update', async (group) => {
         const metadata = await zk.groupMetadata(group.id);
 
         if (group.action == 'add' && (await recupevents(group.id, "welcome") == 'on')) {
-            let msg = `DAVE-XMD`;
+            let msg = `MAKAMESCO-XMD`;
             let membres = group.participants;
             for (let membre of membres) {
                 msg += ` \n𝐇𝐞𝐥𝐥𝐨 @${membre.split("@")[0]} 𝐀𝐍𝐃 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐎𝐔𝐑 𝐆𝐑𝐎𝐔𝐏 𝐇𝐄𝐑𝐄'𝐒 𝐀 𝐂𝐔𝐏 𝐎𝐅 𝐓𝐄𝐀.⭐ \n\n`;
@@ -851,22 +851,22 @@ zk.ev.on('group-participants.update', async (group) => {
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection } = con;
             if (connection === "connecting") {
-                console.log("ℹ️ DAVE-XMD is connecting...");
+                console.log("ℹ️ MAKAMESCO-XMD is connecting...");
             }
             else if (connection === 'open') {
-                console.log("✅ DAVE-XMD Connected to WhatsApp!");
+                console.log("✅ MAKAMESCO-XMD Connected to WhatsApp!");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
                 await (0, baileys_1.delay)(300);
                 console.log("------------------/-----");
-                console.log("DAVE-XMD is Online ✅\n\n");
+                console.log("MAKAMESCO-XMD is Online ✅\n\n");
                 //chargement des daveplugins 
                 console.log("Loading Dave Commands ...\n");
                 fs.readdirSync(__dirname + "/daveplugins").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
-                            require(__dirname + "/daveplugins/" + fichier);
+                            require(__dirname + "/plugins/" + fichier);
                             console.log(fichier + " Installed Successfully✔️");
                         }
                         catch (e) {
@@ -897,8 +897,9 @@ zk.ev.on('group-participants.update', async (group) => {
                 ⁠              
 >⎯⎯⎯[ BOOT SEQUENCE INITIALIZED ]⎯⎯⎯
 ⟢  STATUS  : BOT ACTIVE
-⟢  DEV     : Gifted_dave
-⟢  BOT     : 𝐃𝐀𝐕𝐄-𝐗𝐌𝐃
+⟢  DEV     : Makamesco
+⟢  BOT     : Makamesco-𝐗𝐌𝐃
+⟢  SUGGEST : You just boost followers in makamescodigitalsolutions.com
 ⎯⎯⎯[ SYSTEM READY FOR COMMANDS ]⎯⎯⎯ 
 ⁠⁠`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
