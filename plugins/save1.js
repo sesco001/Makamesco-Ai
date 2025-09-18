@@ -405,7 +405,7 @@ if (!superUser) {repondre('This command is only allowed to the bot owner') ; ret
 });
 
 
-ezra({ nomCom: "save", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
+ezra({ nomCom: "😅", categorie: "Dave-Mods" }, async (dest, zk, commandeOptions) => {
 
   const { repondre , msgRepondu , superUser, auteurMessage } = commandeOptions;
   
