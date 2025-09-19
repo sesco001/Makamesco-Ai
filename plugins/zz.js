@@ -21,6 +21,7 @@ ezra({
   const query = arg.join(" ");
 
   try {
+    // Search YouTube
     const searchResults = await ytSearch(query);
     if (!searchResults || !searchResults.videos.length) {
       return repondre("No song found for the specified query.");
@@ -29,17 +30,18 @@ ezra({
     const video = searchResults.videos[0];
     const videoUrl = video.url;
 
+    // fetch helper
     const getDownloadData = async (url) => {
       try {
         const response = await axios.get(url);
         return response.data;
       } catch (error) {
         console.error("Error fetching data from API:", error);
-        return { success: false };
+        return null;
       }
     };
 
-    // ✅ Your framework, only Keith added at bottom
+    // ✅ APIs list, Keith added
     const apis = [
       `https://api-rin-tohsaka.vercel.app/download/ytmp4?url=${encodeURIComponent(videoUrl)}`,
       `https://apis.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(videoUrl)}`,
@@ -49,18 +51,35 @@ ezra({
       `https://apis-keith.vercel.app/download/dlmp3?url=${encodeURIComponent(videoUrl)}`
     ];
 
-    let downloadData;
+    let finalData = null;
+
     for (const api of apis) {
-      downloadData = await getDownloadData(api);
-      if (downloadData && downloadData.success) break;
+      let res = await getDownloadData(api);
+      if (!res) continue;
+
+      // ✅ normalize different API formats
+      if (res.success && res.result && res.result.download_url) {
+        finalData = {
+          download_url: res.result.download_url,
+          title: res.result.title || video.title,
+        };
+        break;
+      } else if (res.status && res.result && (res.result.link || res.result.url)) {
+        finalData = {
+          download_url: res.result.link || res.result.url,
+          title: res.result.title || video.title,
+        };
+        break;
+      }
     }
 
-    if (!downloadData || !downloadData.success) {
+    if (!finalData) {
       return repondre("Failed to retrieve download URL. Please try again later.");
     }
 
-    const downloadUrl = downloadData.result.download_url;
-    const videoDetails = downloadData.result;
+    // ✅ Safe values
+    const downloadUrl = finalData.download_url;
+    const videoTitle = finalData.title;
 
     const messagePayloads = [
       {
@@ -78,7 +97,7 @@ ezra({
         contextInfo: {
           externalAdReply: {
             title: conf.BOT,
-            body: videoDetails.title,
+            body: videoTitle,
             mediaType: 1,
             sourceUrl: conf.GURL,
             thumbnailUrl: video.thumbnail,
@@ -95,6 +114,6 @@ ezra({
 
   } catch (error) {
     console.error("Error during download process:", error);
-    return repondre(`Download failed due to an error: ${error.message || error}`);
+    return repondre(`Download failed: ${error.message || error}`);
   }
 });
