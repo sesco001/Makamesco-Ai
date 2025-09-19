@@ -26,9 +26,7 @@ const princeApi = {
 const savetube = {
   api: {
     base: "https://media.savetube.me/api",
-    cdn: "/random-cdn",
-    info: "/v2/info",
-    download: "/download"
+    info: "/v2/info"
   },
   headers: {
     'user-agent': 'Mozilla/5.0',
@@ -46,10 +44,27 @@ const savetube = {
   }
 };
 
+// Izumiiiiiii API (final fallback)
+const izumiiii = {
+  async fetchMeta(videoUrl) {
+    try {
+      const apiUrl = `https://izumiiiiiiii.dpdns.org/downloader/youtube?url=${encodeURIComponent(videoUrl)}&format=mp3`;
+      const { data } = await axios.get(apiUrl, {
+        timeout: 20000,
+        headers: { 'user-agent': 'Mozilla/5.0', accept: 'application/json' }
+      });
+      return data;
+    } catch (err) {
+      console.error("Izumiiii error:", err.message);
+      return { success: false };
+    }
+  }
+};
+
 // Define the command
 ezra({
-  nomCom: "song1",
-  aliases: ["play1", "musicdoc", "ytmp3doc", "audiodoc", "mp3doc"],
+  nomCom: "music",
+  aliases: ["play", "music", "ytmp3", "audio", "mp3"],
   categorie: "Music",
   reaction: "🎙️"
 }, async (dest, zk, commandOptions) => {
@@ -62,6 +77,7 @@ ezra({
   const query = arg.join(" ");
 
   try {
+    // 🔍 Search YouTube
     const searchResults = await ytSearch(query);
     if (!searchResults || !searchResults.videos.length) {
       return repondre("No song found for your query.");
@@ -70,16 +86,20 @@ ezra({
     const firstVideo = searchResults.videos[0];
     const videoUrl = firstVideo.url;
 
-    // Try APIs in order
+    // 🎧 Try APIs in order
     let downloadData = await princeApi.fetchMeta(videoUrl);
     if (!downloadData || !downloadData.success) {
       downloadData = await savetube.fetchMeta(videoUrl);
+    }
+    if (!downloadData || !downloadData.success) {
+      downloadData = await izumiiii.fetchMeta(videoUrl);
     }
 
     if (!downloadData || !downloadData.success) {
       return repondre("Failed to fetch audio from all sources. Try again later.");
     }
 
+    // Extract download URL & title
     const downloadUrl = downloadData.result?.download_url || downloadData.url;
     const title = downloadData.result?.title || firstVideo.title;
 
