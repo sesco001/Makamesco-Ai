@@ -8,13 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "s": "node index.js", 
     "start": "node index.js", 
-    "ezra": "pm2 start control.js --attach --max-memory-restart 490M",
+    "ezra": "pm2 start index.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
   "keywords": [
     "bot",
     "Baileys",
-    "jeepers-creeper-xmd",
+    "MKamesvo-creeper-xmd",
     "whatsapp",
     "whatsapp-bot",
     "frediezra"
@@ -72,5 +72,6 @@
    
   }
 }
+
 
 
