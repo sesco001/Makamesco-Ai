@@ -259,6 +259,48 @@ setTimeout(() => {
           return;
         }
       }
+      // antibad 
+        if (conf.ANTI_BAD === "yes") {
+      _0x3b3709.ev.on("messages.upsert", async _0x465c95 => {
+        const {
+          messages: _0x3636b1,
+          type: _0x31b57c
+        } = _0x465c95;
+        if (_0x31b57c !== "notify") {
+          return;
+        }
+        for (const _0x3d274b of _0x3636b1) {
+          try {
+            if (!_0x3d274b.message || _0x3d274b.key.fromMe) {
+              continue;
+            }
+            const _0x1559fc = _0x3d274b.key.remoteJid;
+            const _0x536d88 = _0x1559fc.endsWith("@g.us");
+            const _0x42ec04 = _0x3d274b.message.conversation || _0x3d274b.message.extendedTextMessage?.["text"] || _0x3d274b.message.imageMessage?.["caption"] || _0x3d274b.message.videoMessage?.["caption"] || '';
+            if (containsBadText(_0x42ec04)) {
+              await _0x3b3709.sendMessage(_0x1559fc, {
+                'text': "🚫 *Inappropriate language detected!*\nYour message has been removed."
+              }, {
+                'quoted': _0x3d274b
+              });
+              await _0x3b3709.sendMessage(_0x1559fc, {
+                'delete': {
+                  'remoteJid': _0x1559fc,
+                  'fromMe': false,
+                  'id': _0x3d274b.key.id,
+                  'participant': _0x3d274b.key.participant || (_0x536d88 ? _0x3d274b.key.participant : _0x1559fc)
+                }
+              });
+              console.log("⚠️ Deleted bad message from " + _0x1559fc);
+            }
+          } catch (_0x3c21d0) {
+            console.error("❌ ANTI_BAD Error:", _0x3c21d0);
+          }
+        }
+      });
+    } else {
+      console.log("ANTI_BAD is off. Enable it in conf settings to activate.");
+    }
       
       // Send auto-reply
       if (conf.AUTO_REPLY === "yes" && !repliedUsers.has(sender) && !message.key.fromMe && !sender.includes("@g.us")) {
