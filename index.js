@@ -153,10 +153,10 @@ setTimeout(() => {
       "👀 Watching you like console logs 👨‍💻",
       "📌 Daily desk goals: Build, Break, Fix, Repeat.",
       "🎭 This bot has more personalities than your ex.",
-      "👑 Bot: LUCKY-MD-XFORCE | AI: Fredi AI",
+      "👑 Bot: MAKAMESCO-MD | AI: MAKA AI",
       "✨ Today is yours. Make it *legendary*.",
       "📊 Performance: 100% Efficiency (maybe 💀)",
-      "⚙️ Built with ❤️ by FredieTech",
+      "⚙️ Built with ❤️ by MAKAMESCO",
       "🎮 Skills unlocked: AI | Code | Meme | Hustle"
     ];
     
@@ -383,6 +383,43 @@ setTimeout(() => {
         }
       }
     });
+    // Antiedit function
+     const originalContent = getContent(originalMsg.message);
+      const editedContent = getContent(editedMsg);
+
+      // Only proceed if content actually changed
+      if (originalContent === editedContent) {
+        console.log(chalk.yellow(`[ANTIEDIT] No content change detected for ${editId}`));
+        continue;
+      }
+
+      const notificationMessage = `*⚠️📌 MAKAMESCO ᴀɴᴛɪᴇᴅɪᴛ 📌⚠️*\n\n` +
+                               `👤 *sᴇɴᴅᴇʀ:* @${sender.split('@')[0]}\n` +
+                               `📄 *ᴏʀɪɢɪɴᴀʟ ᴍᴇssᴀɢᴇ:* ${originalContent}\n` +
+                               `✏️ *ᴇᴅɪᴛᴇᴅ ᴍᴇssᴀɢᴇ:* ${editedContent}\n` +
+                               `🧾 *ᴄʜᴀᴛ ᴛʏᴘᴇ:* ${isGroup ? 'Group' : 'DM'}`;
+
+      const sendTo = currentAntiedit === 'private' ? client.user.id : chat;
+      await client.sendMessage(sendTo, { 
+        text: notificationMessage,
+        mentions: [sender]
+      });
+
+      // Update tracking with timestamp
+      processedEdits.set(editId, [now, originalContent, editedContent]);
+      console.log(chalk.green(`[ANTIEDIT] Reported edit from ${senderName}`));
+    }
+
+    // Cleanup old entries
+    for (const [id, data] of processedEdits) {
+      if (now - data[0] > 60000) { // 1 minute retention
+        processedEdits.delete(id);
+      }
+    }
+  } catch (err) {
+    console.error(chalk.red('[ANTIEDIT ERROR]', err.stack));
+  }
+});
 
     // Auto-react functionality
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
