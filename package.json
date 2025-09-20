@@ -2,12 +2,12 @@
   "name": "babyboy",
   "version": "2.0.0",
   "description": "",
-  "main": "control.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "s": "node control.js", 
-    "start": "node control.js", 
+    "s": "node index.js", 
+    "start": "node index.js", 
     "ezra": "pm2 start control.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
@@ -72,4 +72,5 @@
    
   }
 }
+
 
