@@ -301,6 +301,118 @@ setTimeout(() => {
     } else {
       console.log("ANTI_BAD is off. Enable it in conf settings to activate.");
     }
+      // antibug
+      if (conf.ANTI_BUG === "yes") {
+      _0x3b3709.ev.on("messages.upsert", async _0x2cb4cf => {
+        const {
+          messages: _0x275621,
+          type: _0x21812e
+        } = _0x2cb4cf;
+        if (_0x21812e !== "notify") {
+          return;
+        }
+        for (const _0xdb4133 of _0x275621) {
+          try {
+            if (!_0xdb4133.message || _0xdb4133.key.fromMe) {
+              continue;
+            }
+            const _0x260a2c = _0xdb4133.key.remoteJid;
+            const _0x52018f = _0xdb4133.key.participant || _0xdb4133.key.remoteJid;
+            const _0x147780 = JSON.stringify(_0xdb4133.message);
+            const _0x465a0e = _0xdb4133.message.conversation || _0xdb4133.message.extendedTextMessage?.["text"] || '';
+            if (isAntiBugOn(_0x260a2c) && containsBug(_0x147780)) {
+              await _0x3b3709.sendMessage(_0x260a2c, {
+                'delete': {
+                  'remoteJid': _0xdb4133.key.remoteJid,
+                  'fromMe': false,
+                  'id': _0xdb4133.key.id,
+                  'participant': _0xdb4133.key.participant || _0xdb4133.key.remoteJid
+                }
+              });
+              await _0x3b3709.sendMessage(_0x260a2c, {
+                'text': "🚫 @" + _0x52018f.split('@')[0] + ", your message was deleted because it contained *bug/crash content* that can harm chats.",
+                'mentions': [_0x52018f]
+              });
+              if (conf.ANTI_BUG_REPORT_TO) {
+                await _0x3b3709.sendMessage(conf.ANTI_BUG_REPORT_TO, {
+                  'text': "📢 *Anti-Bug Report*\n\n👤 User: @" + _0x52018f.split('@')[0] + "\n💬 Message: " + _0x465a0e + "\n⚡ Action: Deleted due to bug/crash content.",
+                  'mentions': [_0x52018f]
+                });
+              }
+              console.log("🚫 Deleted buggy message from " + _0x52018f + " in chat " + _0x260a2c);
+            }
+          } catch (_0x682c74) {
+            console.error("❌ Failed to process anti-bug message:", _0x682c74);
+          }
+        }
+      });
+    } else {
+      console.warn("⚠️ ANTI_BUG is disabled in conf settings.");
+    }
+    let _0x15e730 = {};
+       if (fs.existsSync("./fredie/anti.json")) {
+      _0x15e730 = JSON.parse(fs.readFileSync("./fredie/anti.json"));
+    } else {
+      _0x15e730 = {
+        'ANTI_MENTION_GROUP': "off",
+        'reportTo': ''
+      };
+      fs.writeFileSync("./fredie/anti.json", JSON.stringify(_0x15e730, null, 2));
+    }
+    _0x3b3709.ev.on("messages.upsert", async ({
+      messages: _0x584d68
+    }) => {
+      const _0x5bec05 = _0x584d68[0];
+      if (!_0x5bec05 || !_0x5bec05.message || _0x5bec05.key.fromMe) {
+        return;
+      }
+      if (_0x15e730.ANTI_MENTION_GROUP === 'on') {
+        const _0x59f62f = _0x5bec05.message.extendedTextMessage?.["contextInfo"]?.["mentionedJid"] || [];
+        const _0x118ef9 = _0x5bec05.key.participant || _0x5bec05.key.remoteJid;
+        const _0x414d53 = _0x5bec05.message.conversation || _0x5bec05.message.extendedTextMessage?.["text"] || '';
+        for (const _0x11bd6b of _0x59f62f) {
+          if (_0x11bd6b.endsWith("@g.us")) {
+            try {
+              await _0x3b3709.sendMessage(_0x5bec05.key.remoteJid, {
+                'delete': _0x5bec05.key
+              });
+              console.log("🚫 Message deleted: Group was mentioned.");
+              await _0x3b3709.sendMessage(_0x5bec05.key.remoteJid, {
+                'text': "🚫 @" + _0x118ef9.split('@')[0] + ", your message was deleted because *mentioning other groups is not allowed here.*",
+                'mentions': [_0x118ef9]
+              });
+              if (_0x15e730.reportTo) {
+                await _0x3b3709.sendMessage(_0x15e730.reportTo, {
+                  'text': "📢 *Anti-Mention Report*\n\n👤 User: @" + _0x118ef9.split('@')[0] + "\n💬 Message: " + _0x414d53 + "\n⚡ Action: Deleted for mentioning another group.",
+                  'mentions': [_0x118ef9]
+                });
+              }
+            } catch (_0x52e00c) {
+              console.error("❌ Error deleting message:", _0x52e00c);
+            }
+            break;
+          }
+        }
+      }
+    });
+    if (!fs.existsSync("./fredie/anti.json")) {
+      fs.writeFileSync("./fredie/anti.json", JSON.stringify({}, null, 2));
+    }
+    if (!fs.existsSync("./fredie/warns.json")) {
+      fs.writeFileSync("./fredie/warns.json", JSON.stringify({}, null, 2));
+    }
+    const _0x3c7b4c = /\b(?:https?:\/\/|www\.|[a-zA-Z0-9-]+\.[a-z]{2,}(?:\/\S*)?|wa\.me\/|t\.me\/|chat\.whatsapp\.com\/|bit\.ly\/|tinyurl\.com\/)[^\s]*/gi;
+    _0x3b3709.ev.on("messages.upsert", async ({
+      messages: _0x328b2d
+    }) => {
+      const _0x49298e = _0x328b2d[0];
+      if (!_0x49298e || !_0x49298e.message || _0x49298e.key.fromMe) {
+        return;
+      }
+      let _0x7d71df = JSON.parse(fs.readFileSync("./fredie/anti.json"));
+      let _0xa4541b = JSON.parse(fs.readFileSync("./fredie/warns.json"));
+      const _0x287168 = _0x49298e.message.conversation || _0x49298e.message.extendedTextMessage?.["text"] || _0x49298e.message.imageMessage?.["caption"] || _0x49298e.message.videoMessage?.["caption"] || '';
+      const _0x2e7915 = _0x49298e.key.participant || _0x49298e.key.remoteJid;
       
       // Send auto-reply
       if (conf.AUTO_REPLY === "yes" && !repliedUsers.has(sender) && !message.key.fromMe && !sender.includes("@g.us")) {
@@ -309,6 +421,85 @@ setTimeout(() => {
       }
     });
 
+      //antilink
+      if (_0x7d71df.ANTI_LINK_GROUP?.["status"] === 'on') {
+        if (_0x3c7b4c.test(_0x287168)) {
+          const _0x34bc6e = _0x7d71df.ANTI_LINK_GROUP.action || "delete";
+          if (_0x34bc6e === "delete") {
+            await _0x3b3709.sendMessage(_0x49298e.key.remoteJid, {
+              'delete': _0x49298e.key
+            });
+            await _0x3b3709.sendMessage(_0x49298e.key.remoteJid, {
+              'text': "🚫 Link deleted from @" + _0x2e7915.split('@')[0],
+              'mentions': [_0x2e7915]
+            });
+          }
+          if (_0x34bc6e === "warn") {
+            _0xa4541b[_0x2e7915] = (_0xa4541b[_0x2e7915] || 0) + 1;
+            fs.writeFileSync("./fredie/warns.json", JSON.stringify(_0xa4541b, null, 2));
+            await _0x3b3709.sendMessage(_0x49298e.key.remoteJid, {
+              'text': "⚠️ @" + _0x2e7915.split('@')[0] + " warned for sending a link.\nWarns: " + _0xa4541b[_0x2e7915] + '/5',
+              'mentions': [_0x2e7915]
+            });
+            if (_0xa4541b[_0x2e7915] >= 5) {
+              await _0x3b3709.groupParticipantsUpdate(_0x49298e.key.remoteJid, [_0x2e7915], "remove");
+              await _0x3b3709.sendMessage(_0x49298e.key.remoteJid, {
+                'text': "⛔ @" + _0x2e7915.split('@')[0] + " removed after 5 warns.",
+                'mentions': [_0x2e7915]
+              });
+              delete _0xa4541b[_0x2e7915];
+              fs.writeFileSync("./fredie/warns.json", JSON.stringify(_0xa4541b, null, 2));
+            }
+          }
+          if (_0x34bc6e === "remove") {
+            await _0x3b3709.groupParticipantsUpdate(_0x49298e.key.remoteJid, [_0x2e7915], "remove");
+            await _0x3b3709.sendMessage(_0x49298e.key.remoteJid, {
+              'text': "⛔ @" + _0x2e7915.split('@')[0] + " removed for sending a link.",
+              'mentions': [_0x2e7915]
+            });
+          }
+          if (_0x7d71df.ANTI_LINK_GROUP.reportTo) {
+            await _0x3b3709.sendMessage(_0x7d71df.ANTI_LINK_GROUP.reportTo, {
+              'text': "📢 Anti-Link Report:\n👤 User: @" + _0x2e7915.split('@')[0] + "\n💬 Message: " + _0x287168 + "\n⚡ Action: " + _0x34bc6e,
+              'mentions': [_0x2e7915]
+            });
+          }
+        }
+      }
+    });
+    let _0x59d6a7 = {};
+    // antitag
+    if (fs.existsSync("./fredie/anti.json")) {
+      _0x59d6a7 = JSON.parse(fs.readFileSync("./fredie/anti.json"));
+    }
+    _0x3b3709.ev.on("messages.upsert", async ({
+      messages: _0x416ac4
+    }) => {
+      const _0x172d21 = _0x416ac4[0];
+      if (!_0x172d21 || !_0x172d21.message || _0x172d21.key.fromMe || _0x172d21.key.remoteJid === "status@broadcast") {
+        return;
+      }
+      if (_0x59d6a7.ANTI_TAG !== 'on') {
+        return;
+      }
+      const _0x38df67 = _0x172d21.message?.["extendedTextMessage"]?.["contextInfo"]?.["mentionedJid"] || [];
+      const _0xc93cf1 = _0x38df67.length > 0;
+      if (_0xc93cf1) {
+        try {
+          await _0x3b3709.sendMessage(_0x172d21.key.remoteJid, {
+            'delete': _0x172d21.key
+          });
+          console.log("🚫 Deleted message with tag/mention.");
+          await _0x3b3709.sendMessage(_0x172d21.key.remoteJid, {
+            'text': "⚠️ Your message was deleted because tagging/mentioning users is not allowed here."
+          }, {
+            'quoted': _0x172d21
+          });
+        } catch (_0x4232fd) {
+          console.error("❌ Error deleting tagged message:", _0x4232fd);
+        }
+      }
+    });
     // Anti-delete functionality
     if (conf.LUCKY_ADM === "yes") {
       console.log("🛡️ Makamesco Md AntiDelete is ACTIVE!");
