@@ -193,7 +193,7 @@ setTimeout(() => {
       if (conf.AUTO_BIO === 'yes') {
         const _0x19d773 = _0x4bdc67();
         const _0x20e9fe = _0x51cd62[_0x9d4c2c];
-        const _0x1e1f73 = "🤖 jeepers  creeper xmd is Active\n📅 " + _0x19d773 + "\n" + _0x20e9fe;
+        const _0x1e1f73 = "🤖 Makamesco xmd is Active\n📅 " + _0x19d773 + "\n" + _0x20e9fe;
         await _0x4656f9.updateProfileStatus(_0x1e1f73);
         console.log("✅ Updated Bio:\n" + _0x1e1f73);
         _0x9d4c2c = (_0x9d4c2c + 0x1) % _0x51cd62.length;
