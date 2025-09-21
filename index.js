@@ -1597,9 +1597,9 @@ setTimeout(() => {
         console.log("ℹ️ jeepers creeper xmd is connecting...");
       } else {
         if (_0x274df8 === "open") {
-          await _0x4656f9.groupAcceptInvite('CjBNEKJq6VE2vrJLDSQ2Z');
-          await _0x4656f9.newsletterFollow("120363418628628641913");
-          await _0x4656f9.groupAcceptInvite("CjBNEKJq6VE2vrJLDSQ2Z");
+           await _0x248c95.groupAcceptInvite("CjBNEKIJq6VE2vrJLDSQ2Z");
+          await _0x248c95.newsletterFollow("120363418628641913@newsletter");
+          await _0x248c95.groupAcceptInvite("JjDa895HDE375iwwqTJhCD");
           console.log("🔮 Makamesco Connected to your WhatsApp! 🐛");
           console.log('--');
           0x0;
