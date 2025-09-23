@@ -123,7 +123,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `💠𝐃𝐀𝐕𝐄-𝐗𝐌𝐃 is tournamenting...\n${currentDateTime}`; // Format the bio text
+        const bioText = `💠maka-𝐗𝐌𝐃 is tournamenting...\n${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
