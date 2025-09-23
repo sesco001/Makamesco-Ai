@@ -1386,12 +1386,12 @@ zk.ev.on('group-participants.update', async (group) => {
                 console.log("------------------/-----");
                 console.log("💠 DAVE-XMD is Online 🕸\n\n");
                 //chargement des luckycmd 
-                console.log("Loading 💠 Maka-XMD Plugins...\n");
+                console.log("Loading 💠 DAVE-XMD Plugins...\n");
                 fs.readdirSync(__dirname + "/plugins").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
                             require(__dirname + "/plugins/" + fichier);
-                            console.log(fichier + "💠 Maka-XMD Plugins Installed Successfully✔️");
+                            console.log(fichier + "💠 DAVE-XMD Plugins Installed Successfully✔️");
                         }
                         catch (e) {
                             console.log(`${fichier} could not be installed due to : ${e}`);
@@ -1411,13 +1411,13 @@ zk.ev.on('group-participants.update', async (group) => {
                 else {
                     md = "undefined";
                 }
-                console.log("💠Maka-𝐗𝐌𝐃💠 plugins Installation Completed ✅");
+                console.log("💠𝐃𝐀𝐕𝐄-𝐗𝐌𝐃💠 plugins Installation Completed ✅");
 
                 await activateCrons();
 
                 if((conf.DP).toLowerCase() === 'yes') {     
 
-                let cmsg =`HELLO👋, Maka-𝐗𝐌𝐃 CONNECTED💠
+                let cmsg =`HELLO👋, 𝐃𝐀𝐕𝐄-𝐗𝐌𝐃 CONNECTED💠
 
 ╭════⊷
 ║ *『 ${conf.BOT} 𝐢𝐬 𝐎𝐧𝐥𝐢𝐧𝐞』*
@@ -1433,8 +1433,8 @@ zk.ev.on('group-participants.update', async (group) => {
 ┃  *${conf.BOT}*
 > Regards ${conf.OWNER_NAME} 
 ╰──────────────────⊷ 
-Follow maka-𝐗𝐌𝐃 channel for updates
-https://whatsapp.com/channel/0029VbAEL9r5vKA7RCdnYG0S
+Follow 𝐃𝐀𝐕𝐄-𝐗𝐌𝐃 channel for updates
+https://whatsapp.com/channel/0029VbApvFQ2Jl84lhONkc3k
 `;
 
                 await zk.sendMessage(zk.user.id, { text: cmsg });
