@@ -156,12 +156,12 @@ ezra({
   const option = arg.join(' ').toLowerCase();
   switch (option) {
     case "yes":
-      s.ANTI_DELETE_MESSAGE = 'yes';  // Enable Antidelete
+      s.LUCKY_ADM = 'yes';  // Enable Antidelete
       responseMessage = ' has been enabled successfully.';
       break;
 
     case "no":
-      s.ANTI_DELETE_MESSAGE = 'no';  // Disable antidelete
+      s.LUCKY_ADM = 'no';  // Disable antidelete
       responseMessage = ' has been disabled successfully.';
       break;
 
@@ -279,12 +279,12 @@ ezra({
   const option = arg.join(' ').toLowerCase();
   switch (option) {
     case "yes":
-      s.AUTO_READ = 'yes';  // Enable Autoread
+      s.AUTO_READ_MESSAGES = 'yes';  // Enable Autoread
       responseMessage = ' has been enabled successfully.';
       break;
 
     case "no":
-      s.AUTO_READ = 'no';  // Disable read message
+      s.AUTO_READ_MESSAGES = 'no';  // Disable read message
       responseMessage = ' has been disabled successfully.';
       break;
 
