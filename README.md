@@ -16,7 +16,7 @@
 
 <!-- Get Session ID -->
 <p align="center">
-  <a href="https://makamesco-pair.onrender.com" target="_blank">
+  <a href="https://maka-pair.onrender.com/" target="_blank">
     <img src="https://img.shields.io/badge/GET-SESSION%20ID-green?style=for-the-badge&logo=key" alt="Get Session ID" width="230">
   </a>
 </p>
