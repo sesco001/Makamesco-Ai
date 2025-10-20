@@ -37,11 +37,11 @@ RUN mkdir -p /app/session
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# ✅ Use tini as entrypoint to handle PID 1 signals properly (Heroku friendly)
+# ✅ Use tini as entrypoint to handle PID 1 signals properly (Heroku & Docker friendly)
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 # ✅ Expose Heroku’s runtime port
 EXPOSE 3000
 
-# ✅ Start app using PM2
+# ✅ Start app using PM2 (keeps it alive & restarts on crash)
 CMD ["pm2-runtime", "start", "control.js", "--name", "makamesco-md"]
