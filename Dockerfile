@@ -1,5 +1,5 @@
 # Use the latest stable Node LTS image (Debian 12 - Bookworm)
-FROM node:20-bookworm
+FROM node:18-slim
 
 # Set working directory
 WORKDIR /app
