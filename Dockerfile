@@ -30,8 +30,8 @@ RUN npm install --omit=dev --legacy-peer-deps
 # Copy app files
 COPY . .
 
-# ✅ Create session folder
-RUN mkdir -p /app/session
+# ✅ Create the correct session folder (yours is called 'scan')
+RUN mkdir -p /app/scan
 
 # ✅ Environment variables
 ENV NODE_ENV=production
@@ -40,7 +40,7 @@ ENV PORT=3000
 # ✅ Use tini as entrypoint to handle PID 1 signals properly (Heroku & Docker friendly)
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-# ✅ Expose Heroku’s runtime port
+# ✅ Expose app port
 EXPOSE 3000
 
 # ✅ Start app using PM2 (keeps it alive & restarts on crash)
