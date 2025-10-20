@@ -1,47 +1,25 @@
-# ✅ Use a reliable and lightweight Node base (Debian 12 Bookworm)
-FROM node:18-bookworm-slim
+FROM node:lts
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg imagemagick webp && apt-get clean
 
 # Set working directory
 WORKDIR /app
 
-# ✅ Install required tools and dependencies safely
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ffmpeg \
-    imagemagick \
-    webp \
-    git \
-    curl \
-    ca-certificates \
-    tzdata \
-    procps \
-    tini && \
-    rm -rf /var/lib/apt/lists/*
-
-# ✅ Install PM2 globally (for process management)
-RUN npm install -g pm2
-
-# Copy package files first (for caching)
+# Copy package files
 COPY package*.json ./
 
-# ✅ Install production dependencies only (faster + smaller)
-RUN npm install --omit=dev --legacy-peer-deps
+# Install dependencies
+RUN npm install && npm cache clean --force
 
-# Copy app files
+# Copy application code
 COPY . .
 
-# ✅ Create the correct session folder (yours is called 'scan')
-RUN mkdir -p /app/scan
-
-# ✅ Environment variables
-ENV NODE_ENV=production
-ENV PORT=3000
-
-# ✅ Use tini as entrypoint to handle PID 1 signals properly (Heroku & Docker friendly)
-ENTRYPOINT ["/usr/bin/tini", "--"]
-
-# ✅ Expose app port
+# Expose port
 EXPOSE 3000
 
-# ✅ Start app using PM2 (keeps it alive & restarts on crash)
-CMD ["pm2-runtime", "start", "control.js", "--name", "makamesco-md"]
+# Set environment
+ENV NODE_ENV production
+
+# Run command
+CMD ["npm", "run", "start"]
