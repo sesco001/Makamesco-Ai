@@ -121,12 +121,28 @@ async function authentification() {
 }
 authentification();
 0x0;
-const store = baileys_1.makeInMemoryStore({
-  'logger': pino().child({
-    'level': "silent",
-    'stream': "store"
-  })
-});
+const store = {
+  chats: {},
+  contacts: {},
+  messages: {},
+  bind: function(ev) {
+    ev.on('contacts.update', (updates) => {
+      for (const update of updates) {
+        if (store.contacts[update.id]) {
+          Object.assign(store.contacts[update.id], update);
+        } else {
+          store.contacts[update.id] = update;
+        }
+      }
+    });
+  },
+  loadMessage: async function(jid, id) {
+    if (store.chats[jid]) {
+      return store.chats[jid].find(m => m.key && m.key.id === id) || null;
+    }
+    return null;
+  }
+};
 setTimeout(() => {
   authentification();
   async function _0x37a412() {
