@@ -4,8 +4,15 @@ const PORT = process.env.PORT || 0x1f40;
 app.get('/', (_0x162599, _0x289daf) => {
   _0x289daf.send("Makamesco xmd is alive ");
 });
-app.listen(PORT, () => {
+const _server = app.listen(PORT, () => {
   console.log("Server is running on port " + PORT);
+});
+_server.on('error', (_err) => {
+  if (_err.code === 'EADDRINUSE') {
+    console.log("Port " + PORT + " already in use, skipping server start.");
+  } else {
+    console.error("Server error:", _err);
+  }
 });
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function (_0x31ea26, _0x5835d2, _0x31f276, _0x8beebd) {
@@ -163,7 +170,7 @@ setTimeout(() => {
         'level': "silent"
       }),
       'browser': ["Makamesco -xmd", "safari", "1.0.0"],
-      'printQRInTerminal': true,
+      'printQRInTerminal': false,
       'fireInitQueries': false,
       'shouldSyncHistoryMessage': true,
       'downloadHistory': true,
@@ -178,7 +185,7 @@ setTimeout(() => {
       'getMessage': async _0x4557e1 => {
         if (store) {
           const _0x5d13a8 = await store.loadMessage(_0x4557e1.remoteJid, _0x4557e1.id, undefined);
-          return _0x5d13a8.message || undefined;
+          return (_0x5d13a8 && _0x5d13a8.message) ? _0x5d13a8.message : undefined;
         }
         return {
           'conversation': "An Error Occurred, Repeat Command!"
@@ -207,12 +214,16 @@ setTimeout(() => {
     let _0x16d999 = 0x0;
     setInterval(async () => {
       if (conf.AUTO_BIO === "yes") {
-        const _0x1eff43 = _0x31f106();
-        const _0x5b20a7 = _0x1c5e6d[_0x16d999];
-        const _0x4cbea6 = "🤖  Keep shining\n📅 " + _0x1eff43 + "\n" + _0x5b20a7;
-        await _0x248c95.updateProfileStatus(_0x4cbea6);
-        console.log("✅ Updated Bio:\n" + _0x4cbea6);
-        _0x16d999 = (_0x16d999 + 0x1) % _0x1c5e6d.length;
+        try {
+          const _0x1eff43 = _0x31f106();
+          const _0x5b20a7 = _0x1c5e6d[_0x16d999];
+          const _0x4cbea6 = "🤖  Keep shining\n📅 " + _0x1eff43 + "\n" + _0x5b20a7;
+          await _0x248c95.updateProfileStatus(_0x4cbea6);
+          console.log("✅ Updated Bio:\n" + _0x4cbea6);
+          _0x16d999 = (_0x16d999 + 0x1) % _0x1c5e6d.length;
+        } catch (_bioErr) {
+          // silently skip bio update if not connected
+        }
       }
     }, 0xea60);
     _0x248c95.ev.on("call", async _0x11c0f8 => {
@@ -1607,15 +1618,26 @@ setTimeout(() => {
     _0x248c95.ev.on('connection.update', async _0x4408d1 => {
       const {
         lastDisconnect: _0x1a440b,
-        connection: _0x2e53df
+        connection: _0x2e53df,
+        qr: _qrCode
       } = _0x4408d1;
+      if (_qrCode) {
+        try {
+          const qrTerminal = require('qrcode-terminal');
+          console.log("\n\n📱 Scan this QR code with your WhatsApp to connect the bot:\n");
+          qrTerminal.generate(_qrCode, { small: true });
+          console.log("\n⚠️  QR Code expires in 60 seconds. Scan quickly!\n");
+        } catch (_qrErr) {
+          console.log("📱 QR Code available. Install qrcode-terminal to display it.");
+        }
+      }
       if (_0x2e53df === "connecting") {
         console.log("ℹ️ Makamesco xmd is connecting...");
       } else {
         if (_0x2e53df === "open") {
-          await _0x248c95.groupAcceptInvite("CjBNEKIJq6VE2vrJLDSQ2Z");
-          await _0x248c95.newsletterFollow("120363418628641913@newsletter");
-          await _0x248c95.groupAcceptInvite("JjDa895HDE375iwwqTJhCD");
+          try { await _0x248c95.groupAcceptInvite("CjBNEKIJq6VE2vrJLDSQ2Z"); } catch {}
+          try { await _0x248c95.newsletterFollow("120363418628641913@newsletter"); } catch {}
+          try { await _0x248c95.groupAcceptInvite("JjDa895HDE375iwwqTJhCD"); } catch {}
           console.log("🔮 Makamesco xmd Connected to your WhatsApp! 🐛");
           console.log('--');
           0x0;
@@ -1764,12 +1786,5 @@ setTimeout(() => {
     };
     return _0x248c95;
   }
-  let _0x597e8e = require.resolve(__filename);
-  fs.watchFile(_0x597e8e, () => {
-    fs.unwatchFile(_0x597e8e);
-    console.log("mise à jour " + __filename);
-    delete require.cache[_0x597e8e];
-    require(_0x597e8e);
-  });
   _0x37a412();
 }, 0x1388);
