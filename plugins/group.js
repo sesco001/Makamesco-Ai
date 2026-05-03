@@ -31,7 +31,7 @@ ezra({ nomCom: "tagall", categorie: 'Group', reaction: "📯" }, async (dest, zk
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   var tag = ""; 
   tag += `========================\n  
-        🌟 *MAKAMESCO-𝐌𝐃*𝕋𝔸𝔾𝔾𝔼𝔻 🌟
+        🌟 *Untoldman😎* 𝕋𝔸𝔾𝔾𝔼𝔻 🌟
 ========================\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Autor : *${nomAuteurMessage}* 👋 
@@ -72,7 +72,7 @@ ezra({ nomCom: "link", categorie: 'Group', reaction: "🚜" }, async (dest, zk, 
 
   let mess = `hello ${nomAuteurMessage} , here is the group link for ${nomGroupe} \n
 
-Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  makamesco 𝚃𝚣`
+Grp link :${lien} \n\n★𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢  Untoldman😎`
   repondre(mess)
 
 

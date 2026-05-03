@@ -18,7 +18,7 @@ ezra({ nomCom: "getallmembers", categorie: 'Group', reaction: "📣" }, async (d
   let membresGroupe = verifGroupe && infosGroupe ? infosGroupe.participants || [] : [];
 
   let tag = `========================\n  
-        🌟 *MAKAMESCO-MD GROUP MEMBERS GIDS* 🌟
+        🌟 *Untoldman😎 GROUP MEMBERS GIDS* 🌟
 ========================\n
 > regards frediezra®\n\n`;
 
@@ -57,7 +57,7 @@ ezra({ nomCom: "tagadmin", categorie: 'Group', reaction: "📣" }, async (dest, 
   let adminsGroupe = membresGroupe.filter(membre => membre.isAdmin);
 
   let tag = `========================\n  
-        🌟 *MAKAMESCO-MD* 🌟
+        🌟 *Untoldman😎* 🌟
 ========================\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Author : *${nomAuteurMessage}* 👋 

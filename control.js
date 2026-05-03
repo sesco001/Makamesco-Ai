@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 0x1f40;
 app.get('/', (_0x162599, _0x289daf) => {
-  _0x289daf.send("Makamesco xmd is alive ");
+  _0x289daf.send("Untoldman😎 is alive ");
 });
 const _server = app.listen(PORT, () => {
   console.log("Server is running on port " + PORT);
@@ -111,7 +111,7 @@ const {
 let {
   reagir
 } = require(__dirname + '/fredi/app');
-var session = conf.session.replace(/MAKAMESCO-MD<=>/g, '');
+var session = conf.session.includes('<=>') ? conf.session.split('<=>').pop() : conf.session;
 const prefixe = conf.PREFIXE;
 async function authentification() {
   try {
@@ -169,7 +169,7 @@ setTimeout(() => {
       'logger': pino({
         'level': "silent"
       }),
-      'browser': ["Makamesco -xmd", "safari", "1.0.0"],
+      'browser': ["Untoldman", "safari", "1.0.0"],
       'printQRInTerminal': false,
       'fireInitQueries': false,
       'shouldSyncHistoryMessage': true,
@@ -210,7 +210,7 @@ setTimeout(() => {
       };
       return new Intl.DateTimeFormat('en-KE', _0x59e84f).format(_0x2dfb9d);
     }
-    const _0x1c5e6d = ["🛠️ Learning never ends — debug life!", "🔥 Bot powered by Makamesco & dreams 😎", "🎯 Skills don't sleep... neither do bots 🤖", "💡 *Ladys 💃 if your 🤔 Body 🧑‍🦳 is the Temple 🕌 of Gød 🙏 , who are 🫵 u to stop 🤚 the sons 🧑‍🦱 of God 🙏 from ntering 🚶 their Father 🕌🤣🤣🤣🤣*!", "📅 Stay productive — even in downtime!", "😂 If bots had feelings... mine would be busy.", "🚀 Running like a boss at 1000 scripts/sec.", "🌍 Global bot vibes from KE 🇰🇪", "📚 Guide, Help, Fun, Repeat.", "🤹 Life is a mix of memes & miracles.", "👀 Watching you like console logs 👨‍💻", "📌 Daily desk goals: Build, Break, Fix, Repeat.", "🎭 This bot has more personalities than your ex.", "👑 Bot: jeepers-creeper xmd | AI: sir bravin AI", "✨ Today is yours. Make it *legendary*.", "📊 Performance: 100% Efficiency (maybe 💀)", "⚙️ Built with ❤️ by sir bravine", "🎮 Skills unlocked: AI | Code | Meme | Hustle"];
+    const _0x1c5e6d = ["🛠️ Learning never ends — debug life!", "🔥 Bot powered by Untoldman😎 & dreams", "🎯 Skills don't sleep... neither do bots 🤖", "💡 *Ladys 💃 if your 🤔 Body 🧑‍🦳 is the Temple 🕌 of Gød 🙏 , who are 🫵 u to stop 🤚 the sons 🧑‍🦱 of God 🙏 from ntering 🚶 their Father 🕌🤣🤣🤣🤣*!", "📅 Stay productive — even in downtime!", "😂 If bots had feelings... mine would be busy.", "🚀 Running like a boss at 1000 scripts/sec.", "🌍 Global bot vibes from KE 🇰🇪", "📚 Guide, Help, Fun, Repeat.", "🤹 Life is a mix of memes & miracles.", "👀 Watching you like console logs 👨‍💻", "📌 Daily desk goals: Build, Break, Fix, Repeat.", "🎭 This bot has more personalities than your ex.", "👑 Bot: jeepers-creeper xmd | AI: sir bravin AI", "✨ Today is yours. Make it *legendary*.", "📊 Performance: 100% Efficiency (maybe 💀)", "⚙️ Built with ❤️ by sir bravine", "🎮 Skills unlocked: AI | Code | Meme | Hustle"];
     let _0x16d999 = 0x0;
     setInterval(async () => {
       if (conf.AUTO_BIO === "yes") {
@@ -290,7 +290,7 @@ setTimeout(() => {
       }
     });
     if (conf.LUCKY_ADM === 'yes') {
-      console.log("👿 Makamesco xmd AntiDelete is ACTIVE!");
+      console.log("👿 Untoldman😎 AntiDelete is ACTIVE!");
     }
     _0x248c95.ev.on("messages.upsert", async _0x73c8b4 => {
       if (conf.LUCKY_ADM !== "yes") {
@@ -336,7 +336,7 @@ setTimeout(() => {
               _0x38cced = "\n• Group information unavailable.";
             }
           }
-          const _0x19cbde = "👿 *Makamesco antiDelete* 👿\n" + ("• Deleted by: @" + _0xd4fb9c.split('@')[0x0] + "\n") + ("• Original sender: @" + _0x363379.split('@')[0x0] + "\n") + (_0x38cced + "\n") + ("• Chat type: " + (_0x5c5fe2 ? "Group" : "Private"));
+          const _0x19cbde = "👿 *Untoldman😎 antiDelete* 👿\n" + ("• Deleted by: @" + _0xd4fb9c.split('@')[0x0] + "\n") + ("• Original sender: @" + _0x363379.split('@')[0x0] + "\n") + (_0x38cced + "\n") + ("• Chat type: " + (_0x5c5fe2 ? "Group" : "Private"));
           const _0x1febd5 = {
             'mentions': [_0xd4fb9c, _0x363379]
           };
@@ -944,7 +944,7 @@ setTimeout(() => {
           'quoted': _0x5bcc9d
         });
       }
-      console.log("\tMakamesco xmd MESSAGES");
+      console.log("\tUntoldman😎 MESSAGES");
       console.log("=========== NEW CONVERSATION ===========");
       if (_0x89ad5b) {
         console.log("MESSAGE FROM GROUP : " + _0x3a9b9f);
@@ -1046,7 +1046,7 @@ setTimeout(() => {
       if (_0x163c59 && _0x163c59.startsWith('>')) {
         if (!_0x59f137) {
           await _0x248c95.sendMessage(_0xaccef3, {
-            'text': "This command is only for the owner or Makamesco to execute 🚫",
+            'text': "This command is only for the owner or Untoldman😎 to execute 🚫",
             'contextInfo': {
               'externalAdReply': {
                 'title': conf.BOT,
@@ -1632,13 +1632,13 @@ setTimeout(() => {
         }
       }
       if (_0x2e53df === "connecting") {
-        console.log("ℹ️ Makamesco xmd is connecting...");
+        console.log("ℹ️ Untoldman😎 is connecting...");
       } else {
         if (_0x2e53df === "open") {
           try { await _0x248c95.groupAcceptInvite("CjBNEKIJq6VE2vrJLDSQ2Z"); } catch {}
           try { await _0x248c95.newsletterFollow("120363418628641913@newsletter"); } catch {}
           try { await _0x248c95.groupAcceptInvite("JjDa895HDE375iwwqTJhCD"); } catch {}
-          console.log("🔮 Makamesco xmd Connected to your WhatsApp! 🐛");
+          console.log("🔮 Untoldman😎 Connected to your WhatsApp! 🐛");
           console.log('--');
           0x0;
           await baileys_1.delay(0xc8);
@@ -1646,13 +1646,13 @@ setTimeout(() => {
           0x0;
           await baileys_1.delay(0x12c);
           console.log('------------------/-----');
-          console.log("👀 Makamesco is Online 🕸\n\n");
-          console.log("🛒 Loading Makamesco Plugins...\n");
+          console.log("👀 Untoldman😎 is Online 🕸\n\n");
+          console.log("🛒 Loading Untoldman😎 Plugins...\n");
           fs.readdirSync(__dirname + "/plugins").forEach(_0x1db269 => {
             if (path.extname(_0x1db269).toLowerCase() == ".js") {
               try {
                 require(__dirname + "/plugins/" + _0x1db269);
-                console.log(_0x1db269 + "🛒🔑 Makamesco plugins Installed Successfully✔️");
+                console.log(_0x1db269 + "🛒🔑 Untoldman😎 plugins Installed Successfully✔️");
               } catch (_0x575409) {
                 console.log(_0x1db269 + " could not be installed due to : " + _0x575409);
               }
@@ -1670,7 +1670,7 @@ setTimeout(() => {
           } else {
             _0x22c684 = "undefined";
           }
-          console.log("🏆🗡️ Makamesco Plugins Installation Completed ✅");
+          console.log("🏆🗡️ Untoldman😎 Plugins Installation Completed ✅");
           await _0xa947cd();
           if (conf.DP.toLowerCase() === 'yes') {
             let _0x3f1cb8 = "HELLO👋, BOT CONNECTED✅😇⁠⁠⁠⁠\n\n║ *『 " + conf.BOT + " IS ONLINE』*\n║    Creator: *" + conf.OWNER_NAME + "*\n║    Prefix : [  " + prefixe + " ]\n║    Mode : " + _0x22c684 + " mode\n║    Total Commands : " + evt.cm.length + "\n";

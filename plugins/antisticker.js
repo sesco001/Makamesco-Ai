@@ -24,7 +24,7 @@ ezra({ nomCom: "antisticker", categorie: "Group", reaction: "🚫" }, async (des
   if (!arg || !arg[0]) {
     const status = data[dest] ? "✅ *ON*" : "❌ *OFF*";
     return repondre(
-      `*━━━『 ANTISTICKER 』━━━*\n\nCurrent status: ${status}\n\nUsage:\n• *antisticker on* — block stickers\n• *antisticker off* — allow stickers\n\n_Powered by MAKAMESCO-MD_`
+      `*━━━『 ANTISTICKER 』━━━*\n\nCurrent status: ${status}\n\nUsage:\n• *antisticker on* — block stickers\n• *antisticker off* — allow stickers\n\n_Powered by Untoldman😎_`
     );
   }
 
@@ -77,7 +77,7 @@ ezra({ nomCom: "groupstatus", categorie: "Group", reaction: "📊" }, async (des
       `💬 *Messaging:* ${isLocked}\n` +
       `✏️ *Settings:* ${isRestricted}\n\n` +
       `📝 *Description:*\n${info.desc || "No description set"}\n\n` +
-      `_Powered by MAKAMESCO-MD_`;
+      `_Powered by Untoldman😎_`;
 
     if (ppgroup) {
       await zk.sendMessage(dest, { image: { url: ppgroup }, caption: statusMsg });

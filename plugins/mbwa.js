@@ -5,7 +5,7 @@ const { Buffer } = require('buffer');
 ezra({
   nomCom: "topdf",
   alias: ["pdf"],
-  desc: "Convert text to a PDF file — MAKAMESCO-𝐗𝐌𝐃 Utility",
+  desc: "Convert text to a PDF file — Untoldman😎 Utility",
   categorie: "Islam",
   reaction: "📄",
   nomFichier: __filename
@@ -25,8 +25,8 @@ ezra({
       await zk.sendMessage(from, {
         document: pdfData,
         mimetype: 'application/pdf',
-        fileName: 'MAKAMESCO-𝐌𝐃.pdf',
-        caption: `📄 *PDF generated successfully!*\n\n> © MAKAMESCO-𝐌𝐃 Official`
+        fileName: 'Untoldman.pdf',
+        caption: `📄 *PDF generated successfully!*\n\n> © Untoldman😎 Official`
       }, { quoted: m });
     });
 

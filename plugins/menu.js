@@ -58,12 +58,12 @@ ezra({
 
     const infoMsg = `
 ╭───────────⊷
-*┋* *ʙᴏᴛ ɴᴀᴍᴇ :  🚨MAKAMESCO-MD🚨*
+*┋* *ʙᴏᴛ ɴᴀᴍᴇ :  🚨Untoldman😎🚨*
 *┋* *ᴘʀᴇғɪx :* [ ${s.PREFIXE} ]
 *┋* *ᴍᴏᴅᴇ :* ${mode}
 *┋* *ᴅᴀᴛᴇ  :* ${date}
 *┋* *ᴘʟᴀᴛғᴏʀᴍ :* ${os.platform()}
-*┋* *ᴏᴡɴᴇʀ ɪs : Makamesco*
+*┋* *ᴏᴡɴᴇʀ ɪs : Untoldman😎*
 *┋* *ᴘʟᴜɢɪɴs ᴄᴍᴅ :* ${cm.length}
 ╰───────────⊷\n`;
     
@@ -92,12 +92,12 @@ ezra({
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: "120363418628641913@newsletter",
-                    newsletterName: "MAKAMESCO-MD",
+                    newsletterName: "Untoldman😎",
                     serverMessageId: -1
                 },
                 forwardingScore: 999,
                 externalAdReply: {
-                    title: "🚨MAKAMESCO-MD 🚨",
+                    title: "🚨Untoldman😎🚨",
                     body: "🔑🗝️ Command List",
                     thumbnailUrl: "",
                     sourceUrl: "https://whatsapp.com/channel/0029VbAEL9r5vKA7RCdnYG0S",

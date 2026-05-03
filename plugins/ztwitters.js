@@ -26,7 +26,7 @@ ezra({
     }
 
     // Construct the search message
-    let searchMessage = `MAKAMESCO MD PLANET TWITTER SEARCH\n\n`;
+    let searchMessage = `Untoldman😎 TWITTER SEARCH\n\n`;
     searchMessage += `Creator: ${response.data.creator}\n\n`;  // Include the creator info
 
     // Loop through search results and append details to the message

@@ -46,7 +46,7 @@ const date = moment().format('DD/MM/YYYY');
  ${message}
  
  
- *MAKAMESCO MD 2025*`
+ *Untoldman😎 2025*`
 
  if (lien.match(/\.(mp4|gif)$/i)) {
     try {
@@ -74,7 +74,7 @@ else {
 }
 
     } else {
-        if(!superUser) { repondre("Hello Fahm Makamesco Md Is A Live 24hrs Enjoy To Use All Time🤗 please visit panel host https://Makamescodigitalsolutions.com") ; return};
+        if(!superUser) { repondre("Hello Fahm Untoldman😎 Is A Live 24hrs Enjoy To Use All Time🤗") ; return};
 
       await   repondre("You have not yet saved your alive, to do this;  enter after alive your message and your image or video link in this context: .alive message;lien");
          repondre("don't do fake thinks :)")
@@ -91,7 +91,7 @@ else {
     
 await addOrUpdateDataInAlive(texte , tlien)
 
-repondre('Makamesco Md Is A Live 24hrs Enjoy To Use All Time🤗. Visit Panel host https://Makamescodigitalsolutions.com')
+repondre('Untoldman😎 Is A Live 24hrs Enjoy To Use All Time🤗')
 
 }
     });
