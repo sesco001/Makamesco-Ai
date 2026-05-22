@@ -1,0 +1,20 @@
+```gitignore
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Dependencies
+node_modules/
+
+# Editors
+.vscode/
+.idea/
+
+# Original rules preserved
+*.log
+```
