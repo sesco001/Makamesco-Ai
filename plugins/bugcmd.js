@@ -1,5 +1,5 @@
 const { ezra } = require("../fredi/ezra");
-const { delay, loading, react } = require("../fredi/utils");
+const { delay, loading, react, isValidPhone, isValidJID, sanitizeInput } = require("../fredi/utils.secure");
 const moment = require("moment-timezone");
 const conf = require("../set.js");
 const fs = require("fs");
@@ -9,95 +9,39 @@ const {
     proto
 } = require("@whiskeysockets/baileys");
 
-// bug database
-const { bugtext1 } = require("../fredi/fredi/bugtext1");
-const { bugtext2 } = require("../fredi/fredi/bugtext2");
-const { bugtext3 } = require("../fredi/fredi/bugtext3");
-const { bugtext4 } = require("../fredi/fredi/bugtext4");
-const { bugtext5 } = require("../fredi/fredi/bugtext5");
-const { bugtext6 } = require("../fredi/fredi/bugtext6");
-const { bugpdf } = require("../fredi/fredi/bugpdf.js");
+// SECURITY WARNING: This plugin contains dangerous code that violates WhatsApp ToS
+// It should be REMOVED entirely. This is a placeholder showing why it's dangerous.
 
 const category = "Bug-cmds";
 const reaction = "🤯";
 
 const mess = {};
-mess.prem = "You are not authorised to use this  command !!!";
+mess.prem = "You are not authorised to use this command !!!";
 
-const phoneRegex = /^\d{1,3}[- ]?(\(\d{1,3}\) )?[\d- ]{7,10}$/;
-const whatsappRegex =
-    /https:\/\/chat\.whatsapp\.com\/(invite|join|)[A-Za-z0-9]+/;
-
-const timewisher = time => {
-    if (time < "23:59:00") {
-        return `Good Night 🌆`;
-    } else if (time < "19:00:00") {
-        return `Good Evening 🌆`;
-    } else if (time < "18:00:00") {
-        return `Good Evening 🌆`;
-    } else if (time < "15:00:00") {
-        return `Good Afternoon 🌅`;
-    } else if (time < "11:00:00") {
-        return `Good Morning 🌄`;
-    } else if (time < "05:00:00") {
-        return `Good Morning 🌄`;
-    }
-};
+// DEPRECATED: Bug commands removed for security and legal compliance
+// The following functionality has been disabled:
+// - Sending crash payloads to users
+// - Exploiting WhatsApp vulnerabilities  
+// - Creating malicious messages
 
 async function relaybug(dest, zk, ms, repondre, amount, victims, bug) {
-    for (let i = 0; i < victims.length; i++) {
-        if (!phoneRegex.test(victims[i])) {
-            repondre(`${victims[i]} not a valid phone number`);
-            continue;
-        } else {
-            const victim = victims[i] + "@s.whatsapp.net";
-            for (let j = 0; j < amount; j++) {
-                var scheduledCallCreationMessage = generateWAMessageFromContent(
-                    dest,
-                    proto.Message.fromObject(bug),
-                    { userJid: dest, quoted: ms }
-                );
-                try {
-                    zk.relayMessage(
-                        victim,
-                        scheduledCallCreationMessage.message,
-                        { messageId: scheduledCallCreationMessage.key.id }
-                    );
-                } catch (e) {
-                    repondre(
-                        `An error occured while sending bugs to ${victims[i]}`
-                    );
-                    console.log(
-                        `An error occured while sending bugs to ${victim}: ${e}`
-                    );
-                    break;
-                }
-                await delay(3000);
-            }
-            if (victims.length > 1)
-                repondre(`${amount} bugs send to ${victims[i]} Successfully.`);
-            await delay(5000);
-        }
-    }
-    repondre(`Successfully sent ${amount} bugs to ${victims.join(", ")}.`);
+    // SECURITY FIX: This function has been disabled
+    // It was designed to send malicious payloads that crash WhatsApp clients
+    repondre("❌ BUG COMMANDS DISABLED: This feature violates WhatsApp Terms of Service and may be illegal.");
+    console.warn("Blocked attempt to use bug command - potential ToS violation");
+    return;
+    
+    // Original dangerous code removed for security
 }
 
 async function sendbug(dest, zk, ms, repondre, amount, victims, bug) {
-    for (let i = 0; i < victims.length; i++) {
-        if (!phoneRegex.test(victims[i])) {
-            repondre(`${victims[i]} not a valid phone number`);
-            continue;
-        } else {
-            const victim = victims[i] + "@s.whatsapp.net";
-            for (let j = 0; j < amount; j++) {
-                try {
-                    zk.sendMessage(victim, bug);
-                } catch (e) {
-                    repondre(
-                        `An error occured while sending bugs to ${victims[i]}`
-                    );
-                    console.log(
-                        `An error occured while sending bugs to ${victim}: ${e}`
+    // SECURITY FIX: This function has been disabled
+    repondre("❌ BUG COMMANDS DISABLED: This feature violates WhatsApp Terms of Service and may be illegal.");
+    console.warn("Blocked attempt to use bug command - potential ToS violation");
+    return;
+    
+    // Original dangerous code removed for security
+}
                     );
                     break;
                 }

@@ -411,8 +411,14 @@ ezra({
   }
 
   try {
-    // Evaluate the mathematical expression
-    let result = eval(text);
+    // Evaluate the mathematical expression SAFELY using mathjs
+    const math = require('mathjs');
+    let result = math.evaluate(text);
+
+    // Validate result is a number
+    if (typeof result !== 'number' || !isFinite(result)) {
+      return repondre("❎ Invalid result. Please check your expression.");
+    }
 
     // Reply with the result
     repondre(`✅ Result of "${text}" is: ${result}`);
